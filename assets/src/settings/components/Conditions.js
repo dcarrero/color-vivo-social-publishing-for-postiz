@@ -82,7 +82,7 @@ function CategoriesField( { id, categories, value, onToggle } ) {
 	return (
 		<BaseControl
 			id={ id }
-			label={ __( 'Categories', 'social-relay-for-postiz' ) }
+			label={ __( 'Categories', 'color-vivo-social-publishing-for-postiz' ) }
 			help={
 				value.length
 					? sprintf(
@@ -91,7 +91,7 @@ function CategoriesField( { id, categories, value, onToggle } ) {
 								'%d category selected.',
 								'%d categories selected.',
 								value.length,
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							),
 							value.length
 					  )
@@ -105,7 +105,7 @@ function CategoriesField( { id, categories, value, onToggle } ) {
 					onChange={ setSearch }
 					placeholder={ __(
 						'Search categories',
-						'social-relay-for-postiz'
+						'color-vivo-social-publishing-for-postiz'
 					) }
 					size="compact"
 					__nextHasNoMarginBottom
@@ -114,7 +114,7 @@ function CategoriesField( { id, categories, value, onToggle } ) {
 			<div
 				className="socialrelaycvi-settings__terms"
 				role="group"
-				aria-label={ __( 'Categories', 'social-relay-for-postiz' ) }
+				aria-label={ __( 'Categories', 'color-vivo-social-publishing-for-postiz' ) }
 			>
 				{ shown.map( ( category ) => (
 					<CheckboxControl
@@ -131,7 +131,7 @@ function CategoriesField( { id, categories, value, onToggle } ) {
 					<p className="description">
 						{ __(
 							'No categories match.',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						) }
 					</p>
 				) }
@@ -173,18 +173,18 @@ export default function Conditions( {
 	const groups = [
 		{
 			kind: 'include',
-			title: __( 'Only', 'social-relay-for-postiz' ),
+			title: __( 'Only', 'color-vivo-social-publishing-for-postiz' ),
 			hint: __(
 				'Share only posts with at least one of these. Empty: any post.',
-				'social-relay-for-postiz'
+				'color-vivo-social-publishing-for-postiz'
 			),
 		},
 		{
 			kind: 'exclude',
-			title: __( 'Never', 'social-relay-for-postiz' ),
+			title: __( 'Never', 'color-vivo-social-publishing-for-postiz' ),
 			hint: __(
 				'Never share posts with any of these, even if they match “Only”.',
-				'social-relay-for-postiz'
+				'color-vivo-social-publishing-for-postiz'
 			),
 		},
 	];
@@ -194,7 +194,7 @@ export default function Conditions( {
 			<p className="description">
 				{ __(
 					'Choose which posts are shared by their categories and tags (those of this site). Leave everything empty to share all posts.',
-					'social-relay-for-postiz'
+					'color-vivo-social-publishing-for-postiz'
 				) }
 			</p>
 			<div className="socialrelaycvi-settings__columns">
@@ -220,7 +220,7 @@ export default function Conditions( {
 							<TagsField
 								label={ __(
 									'Tags',
-									'social-relay-for-postiz'
+									'color-vivo-social-publishing-for-postiz'
 								) }
 								value={ profile[ `${ kind }_tags` ] || [] }
 								onChange={ ( tags ) =>

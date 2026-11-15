@@ -37,7 +37,7 @@ export default function NetworkOptions( {
 	const title =
 		`${ channel.name } · ${ network( channel.identifier ).label }` +
 		( customized
-			? ` · ${ __( 'customized', 'social-relay-for-postiz' ) }`
+			? ` · ${ __( 'customized', 'color-vivo-social-publishing-for-postiz' ) }`
 			: '' );
 
 	return (
@@ -49,18 +49,18 @@ export default function NetworkOptions( {
 								/* translators: %d: character limit of the network. */
 								__(
 									'Template for this channel (limit: %d characters)',
-									'social-relay-for-postiz'
+									'color-vivo-social-publishing-for-postiz'
 								),
 								limit
 						  )
 						: __(
 								'Template for this channel',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 						  )
 				}
 				placeholder={ __(
 					'Empty = common template',
-					'social-relay-for-postiz'
+					'color-vivo-social-publishing-for-postiz'
 				) }
 				value={ options.template || '' }
 				rows={ 3 }
@@ -93,7 +93,7 @@ export default function NetworkOptions( {
 									value: '',
 									label: __(
 										'Default',
-										'social-relay-for-postiz'
+										'color-vivo-social-publishing-for-postiz'
 									),
 								},
 								...Object.entries( field.options || {} ).map(

@@ -1,8 +1,16 @@
 # Changelog
 
-All notable changes to Social Relay for Postiz. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/).
+All notable changes to Color Vivo Social Publishing for Postiz. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
+
+Changes asked for in the wordpress.org review of 1.0.0, before its approval.
+
+### Changed
+- New name **Color Vivo Social Publishing for Postiz** and slug and text domain `color-vivo-social-publishing-for-postiz` (was Social Relay for Postiz / `social-relay-for-postiz`): the old name was already used by another social publishing service. The main file is now `color-vivo-social-publishing-for-postiz.php`. The admin menu and the editor panel are called "Social Publishing", and the WP-CLI command is `wp social-publishing`. Internal names (the `socialrelaycvi_` prefix, options, tables, hooks, REST routes and admin page slugs) do not change.
+- Failure alerts show only in the dashboard, the plugin settings screen and the posts lists of the post types that are shared, instead of every admin screen.
+- Action Scheduler 4.2.0 (was 3.9.3).
+- The release zip no longer includes `languages/`: translations come from translate.wordpress.org. JavaScript translations load from the language packs.
 
 ## [1.0.0] - 2026-11-11
 
@@ -21,7 +29,7 @@ First public release: the changes below, on top of the development versions 0.1.
 - Timing per post ("When" in the editor panel and the classic metabox): now, a date, the next free slot or a draft in Postiz, or the profile setting. Stored in `_socialrelaycvi_mode` and `_socialrelaycvi_publish_at` (site time); a past date sends right away and no date uses the profile delay.
 - Actions in the editor status panel: "Share again now" (with a confirmation that names the channels and timing), "Retry" on a failed network (only that channel is sent) and "Cancel pending" (deletes scheduled posts and drafts in Postiz). The panel polls every 5 s for a minute after each action.
 - REST routes `POST socialrelaycvi/v1/posts/{id}/share` (optional `channels` to retry only some) and `POST socialrelaycvi/v1/posts/{id}/cancel`, for users who can edit the post.
-- WP-CLI: `wp social-relay status|test|channels|preview|share|shares|cancel|sync|log`.
+- WP-CLI: `wp social-publishing status|test|channels|preview|share|shares|cancel|sync|log`.
 - Abilities API (WordPress 6.9+): `socialrelaycvi/get-status`, `list-channels`, `preview-post`, `share-post`, `get-post-shares` and `cancel-post-shares`, in the `social-media` category, with input/output schemas, behaviour annotations and capability checks. Exposed in REST for AI agents (MCP Adapter) and other tools.
 - Admin REST routes (`socialrelaycvi/v1/admin/settings|connection|profiles|stats|advanced|webhook/regenerate|log`), `manage_options` only; the API key is write-only.
 - Editor panel: one tab per selected channel for its own text, next to the "All" tab; a dot marks channels with custom text.

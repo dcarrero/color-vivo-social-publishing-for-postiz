@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Social Relay for Postiz
+ * Plugin Name:       Color Vivo Social Publishing for Postiz
  * Plugin URI:        https://github.com/dcarrero/social-relay-for-postiz
  * Description:       Auto-publish and schedule your WordPress content on social networks through your own Postiz instance (self-hosted or Postiz Cloud).
  * Version:           1.0.0
@@ -10,8 +10,7 @@
  * Author URI:        https://colorvivo.com
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       social-relay-for-postiz
- * Domain Path:       /languages
+ * Text Domain:       color-vivo-social-publishing-for-postiz
  *
  * @package SocialRelayCvi
  */
@@ -28,7 +27,7 @@ if ( version_compare( PHP_VERSION, '8.2', '<' ) ) {
 		'admin_notices',
 		static function () {
 			echo '<div class="notice notice-error"><p>';
-			echo esc_html__( 'Social Relay for Postiz requires PHP 8.2 or higher.', 'social-relay-for-postiz' );
+			echo esc_html__( 'Color Vivo Social Publishing for Postiz requires PHP 8.2 or higher.', 'color-vivo-social-publishing-for-postiz' );
 			echo '</p></div>';
 		}
 	);
@@ -40,7 +39,7 @@ if ( ! is_readable( SOCIALRELAYCVI_DIR . 'vendor/autoload.php' ) ) {
 		'admin_notices',
 		static function () {
 			echo '<div class="notice notice-error"><p>';
-			echo esc_html__( 'Social Relay for Postiz is missing its dependencies. Run "composer install" or install a release build.', 'social-relay-for-postiz' );
+			echo esc_html__( 'Color Vivo Social Publishing for Postiz is missing its dependencies. Run "composer install" or install a release build.', 'color-vivo-social-publishing-for-postiz' );
 			echo '</p></div>';
 		}
 	);

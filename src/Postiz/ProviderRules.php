@@ -126,59 +126,59 @@ final class ProviderRules {
 			'x'                                 => array(
 				'who_can_reply_post' => array(
 					'type'    => 'select',
-					'label'   => __( 'Who can reply', 'social-relay-for-postiz' ),
+					'label'   => __( 'Who can reply', 'color-vivo-social-publishing-for-postiz' ),
 					'options' => array(
-						'everyone'       => __( 'Everyone', 'social-relay-for-postiz' ),
-						'following'      => __( 'Accounts you follow', 'social-relay-for-postiz' ),
-						'mentionedUsers' => __( 'Mentioned accounts', 'social-relay-for-postiz' ),
-						'subscribers'    => __( 'Subscribers', 'social-relay-for-postiz' ),
-						'verified'       => __( 'Verified accounts', 'social-relay-for-postiz' ),
+						'everyone'       => __( 'Everyone', 'color-vivo-social-publishing-for-postiz' ),
+						'following'      => __( 'Accounts you follow', 'color-vivo-social-publishing-for-postiz' ),
+						'mentionedUsers' => __( 'Mentioned accounts', 'color-vivo-social-publishing-for-postiz' ),
+						'subscribers'    => __( 'Subscribers', 'color-vivo-social-publishing-for-postiz' ),
+						'verified'       => __( 'Verified accounts', 'color-vivo-social-publishing-for-postiz' ),
 					),
 				),
 				'community'          => array(
 					'type'  => 'text',
-					'label' => __( 'Community URL (optional)', 'social-relay-for-postiz' ),
+					'label' => __( 'Community URL (optional)', 'color-vivo-social-publishing-for-postiz' ),
 				),
 			),
 			'linkedin', 'linkedin-page'         => array(
 				'post_as_images_carousel' => array(
 					'type'  => 'bool',
-					'label' => __( 'Show several images as a carousel', 'social-relay-for-postiz' ),
+					'label' => __( 'Show several images as a carousel', 'color-vivo-social-publishing-for-postiz' ),
 				),
 			),
 			'instagram', 'instagram-standalone' => array(
 				'post_type' => array(
 					'type'    => 'select',
-					'label'   => __( 'Publish as', 'social-relay-for-postiz' ),
+					'label'   => __( 'Publish as', 'color-vivo-social-publishing-for-postiz' ),
 					'options' => array(
-						'post'  => _x( 'Post', 'Instagram publication type', 'social-relay-for-postiz' ),
-						'story' => _x( 'Story', 'Instagram publication type', 'social-relay-for-postiz' ),
+						'post'  => _x( 'Post', 'Instagram publication type', 'color-vivo-social-publishing-for-postiz' ),
+						'story' => _x( 'Story', 'Instagram publication type', 'color-vivo-social-publishing-for-postiz' ),
 					),
 				),
 			),
 			'pinterest'                         => array(
 				'board' => array(
 					'type'     => 'text',
-					'label'    => __( 'Board ID', 'social-relay-for-postiz' ),
+					'label'    => __( 'Board ID', 'color-vivo-social-publishing-for-postiz' ),
 					'required' => true,
 				),
 			),
 			'gmb'                               => array(
 				'topicType'        => array(
 					'type'    => 'select',
-					'label'   => __( 'Post type', 'social-relay-for-postiz' ),
-					'options' => array( 'STANDARD' => _x( 'Update', 'Google Business publication type', 'social-relay-for-postiz' ) ),
+					'label'   => __( 'Post type', 'color-vivo-social-publishing-for-postiz' ),
+					'options' => array( 'STANDARD' => _x( 'Update', 'Google Business publication type', 'color-vivo-social-publishing-for-postiz' ) ),
 				),
 				'callToActionType' => array(
 					'type'    => 'select',
-					'label'   => __( 'Button', 'social-relay-for-postiz' ),
+					'label'   => __( 'Button', 'color-vivo-social-publishing-for-postiz' ),
 					'options' => array(
-						'NONE'       => __( 'None', 'social-relay-for-postiz' ),
-						'LEARN_MORE' => __( 'Learn more', 'social-relay-for-postiz' ),
-						'BOOK'       => __( 'Book', 'social-relay-for-postiz' ),
-						'ORDER'      => __( 'Order', 'social-relay-for-postiz' ),
-						'SHOP'       => __( 'Shop', 'social-relay-for-postiz' ),
-						'SIGN_UP'    => __( 'Sign up', 'social-relay-for-postiz' ),
+						'NONE'       => __( 'None', 'color-vivo-social-publishing-for-postiz' ),
+						'LEARN_MORE' => __( 'Learn more', 'color-vivo-social-publishing-for-postiz' ),
+						'BOOK'       => __( 'Book', 'color-vivo-social-publishing-for-postiz' ),
+						'ORDER'      => __( 'Order', 'color-vivo-social-publishing-for-postiz' ),
+						'SHOP'       => __( 'Shop', 'color-vivo-social-publishing-for-postiz' ),
+						'SIGN_UP'    => __( 'Sign up', 'color-vivo-social-publishing-for-postiz' ),
 					),
 				),
 			),

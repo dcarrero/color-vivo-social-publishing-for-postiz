@@ -1,5 +1,5 @@
 /**
- * Social Relay for Postiz: log screen.
+ * Color Vivo Social Publishing for Postiz: log screen.
  *
  * Built with the components WordPress already loads (no extra libraries), so the
  * bundle stays small. Data comes from socialrelaycvi/v1/admin/log.
@@ -32,9 +32,9 @@ const channels = config.channels || {};
 const PER_PAGE = 25;
 
 const LEVELS = [
-	{ value: '', label: __( 'All levels', 'social-relay-for-postiz' ) },
-	{ value: 'info', label: __( 'Info', 'social-relay-for-postiz' ) },
-	{ value: 'error', label: __( 'Error', 'social-relay-for-postiz' ) },
+	{ value: '', label: __( 'All levels', 'color-vivo-social-publishing-for-postiz' ) },
+	{ value: 'info', label: __( 'Info', 'color-vivo-social-publishing-for-postiz' ) },
+	{ value: 'error', label: __( 'Error', 'color-vivo-social-publishing-for-postiz' ) },
 ];
 
 /**
@@ -45,12 +45,12 @@ const LEVELS = [
  */
 function actionLabel( action ) {
 	const labels = {
-		share: __( 'Share', 'social-relay-for-postiz' ),
-		cancel: __( 'Cancel', 'social-relay-for-postiz' ),
-		sync: __( 'Status sync', 'social-relay-for-postiz' ),
-		test: __( 'Connection test', 'social-relay-for-postiz' ),
-		upload: __( 'Image upload', 'social-relay-for-postiz' ),
-		webhook: __( 'Webhook', 'social-relay-for-postiz' ),
+		share: __( 'Share', 'color-vivo-social-publishing-for-postiz' ),
+		cancel: __( 'Cancel', 'color-vivo-social-publishing-for-postiz' ),
+		sync: __( 'Status sync', 'color-vivo-social-publishing-for-postiz' ),
+		test: __( 'Connection test', 'color-vivo-social-publishing-for-postiz' ),
+		upload: __( 'Image upload', 'color-vivo-social-publishing-for-postiz' ),
+		webhook: __( 'Webhook', 'color-vivo-social-publishing-for-postiz' ),
 	};
 	return labels[ action ] || action;
 }
@@ -80,7 +80,7 @@ function Row( { item } ) {
 				{ item.edit_link && (
 					<a href={ item.edit_link }>
 						{ item.post_title ||
-							__( '(no title)', 'social-relay-for-postiz' ) }
+							__( '(no title)', 'color-vivo-social-publishing-for-postiz' ) }
 					</a>
 				) }
 			</td>
@@ -95,7 +95,7 @@ function Row( { item } ) {
 					>
 						{ __(
 							'Channel not in Postiz',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						) }
 					</span>
 				) }
@@ -172,21 +172,21 @@ function LogApp() {
 	};
 
 	const columns = [
-		__( 'Date', 'social-relay-for-postiz' ),
-		__( 'Level', 'social-relay-for-postiz' ),
-		__( 'Action', 'social-relay-for-postiz' ),
-		__( 'Post', 'social-relay-for-postiz' ),
-		__( 'Channel', 'social-relay-for-postiz' ),
-		__( 'Message', 'social-relay-for-postiz' ),
+		__( 'Date', 'color-vivo-social-publishing-for-postiz' ),
+		__( 'Level', 'color-vivo-social-publishing-for-postiz' ),
+		__( 'Action', 'color-vivo-social-publishing-for-postiz' ),
+		__( 'Post', 'color-vivo-social-publishing-for-postiz' ),
+		__( 'Channel', 'color-vivo-social-publishing-for-postiz' ),
+		__( 'Message', 'color-vivo-social-publishing-for-postiz' ),
 	];
 
 	return (
 		<div className="socialrelaycvi-log">
 			<div className="socialrelaycvi-log__header">
-				<h1>{ __( 'Log', 'social-relay-for-postiz' ) }</h1>
+				<h1>{ __( 'Log', 'color-vivo-social-publishing-for-postiz' ) }</h1>
 				<div className="socialrelaycvi-log__actions">
 					<Button variant="secondary" onClick={ refresh }>
-						{ __( 'Refresh', 'social-relay-for-postiz' ) }
+						{ __( 'Refresh', 'color-vivo-social-publishing-for-postiz' ) }
 					</Button>
 					<Button
 						variant="tertiary"
@@ -194,7 +194,7 @@ function LogApp() {
 						onClick={ () => setConfirming( true ) }
 						disabled={ ! data.total }
 					>
-						{ __( 'Clear log', 'social-relay-for-postiz' ) }
+						{ __( 'Clear log', 'color-vivo-social-publishing-for-postiz' ) }
 					</Button>
 				</div>
 			</div>
@@ -206,25 +206,25 @@ function LogApp() {
 							stats.published,
 							__(
 								'Published (30 days)',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							),
 							'is-success',
 						],
 						[
 							stats.queued,
-							__( 'Queued', 'social-relay-for-postiz' ),
+							__( 'Queued', 'color-vivo-social-publishing-for-postiz' ),
 							'is-info',
 						],
 						[
 							stats.errors,
-							__( 'Errors (30 days)', 'social-relay-for-postiz' ),
+							__( 'Errors (30 days)', 'color-vivo-social-publishing-for-postiz' ),
 							'is-error',
 						],
 						[
 							`${ stats.lastHour } / ${ stats.limit || 90 }`,
 							__(
 								'Requests to Postiz in the last hour (it allows 90)',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							),
 							'',
 						],
@@ -242,7 +242,7 @@ function LogApp() {
 
 			<div className="socialrelaycvi-log__filters">
 				<SearchControl
-					label={ __( 'Search messages', 'social-relay-for-postiz' ) }
+					label={ __( 'Search messages', 'color-vivo-social-publishing-for-postiz' ) }
 					value={ search }
 					onChange={ ( value ) => {
 						setSearch( value );
@@ -251,7 +251,7 @@ function LogApp() {
 					__nextHasNoMarginBottom
 				/>
 				<SelectControl
-					label={ __( 'Level', 'social-relay-for-postiz' ) }
+					label={ __( 'Level', 'color-vivo-social-publishing-for-postiz' ) }
 					hideLabelFromVision
 					value={ level }
 					options={ LEVELS }
@@ -267,7 +267,7 @@ function LogApp() {
 
 			{ cleared && (
 				<Notice status="success" onRemove={ () => setCleared( false ) }>
-					{ __( 'Log cleared.', 'social-relay-for-postiz' ) }
+					{ __( 'Log cleared.', 'color-vivo-social-publishing-for-postiz' ) }
 				</Notice>
 			) }
 			{ error && (
@@ -293,11 +293,11 @@ function LogApp() {
 								{ query || level
 									? __(
 											'No entries match the search or filter.',
-											'social-relay-for-postiz'
+											'color-vivo-social-publishing-for-postiz'
 									  )
 									: __(
 											'Nothing logged yet.',
-											'social-relay-for-postiz'
+											'color-vivo-social-publishing-for-postiz'
 									  ) }
 							</td>
 						</tr>
@@ -315,14 +315,14 @@ function LogApp() {
 						disabled={ page <= 1 }
 						onClick={ () => setPage( page - 1 ) }
 					>
-						{ __( 'Previous', 'social-relay-for-postiz' ) }
+						{ __( 'Previous', 'color-vivo-social-publishing-for-postiz' ) }
 					</Button>
 					<span>
 						{ sprintf(
 							/* translators: 1: current page, 2: total pages, 3: total entries. */
 							__(
 								'Page %1$d of %2$d (%3$d entries)',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							),
 							page,
 							data.pages,
@@ -334,7 +334,7 @@ function LogApp() {
 						disabled={ page >= data.pages }
 						onClick={ () => setPage( page + 1 ) }
 					>
-						{ __( 'Next', 'social-relay-for-postiz' ) }
+						{ __( 'Next', 'color-vivo-social-publishing-for-postiz' ) }
 					</Button>
 				</div>
 			) }
@@ -345,12 +345,12 @@ function LogApp() {
 				onCancel={ () => setConfirming( false ) }
 				confirmButtonText={ __(
 					'Clear log',
-					'social-relay-for-postiz'
+					'color-vivo-social-publishing-for-postiz'
 				) }
 			>
 				{ __(
 					'Delete every log entry? This cannot be undone.',
-					'social-relay-for-postiz'
+					'color-vivo-social-publishing-for-postiz'
 				) }
 			</ConfirmDialog>
 		</div>

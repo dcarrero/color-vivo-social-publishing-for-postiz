@@ -11,86 +11,86 @@ import './tag-menu.css';
 function groups() {
 	return [
 		{
-			label: __( 'Post', 'social-relay-for-postiz' ),
+			label: __( 'Post', 'color-vivo-social-publishing-for-postiz' ),
 			tags: [
-				[ '{title}', __( 'Title', 'social-relay-for-postiz' ) ],
+				[ '{title}', __( 'Title', 'color-vivo-social-publishing-for-postiz' ) ],
 				[
 					'{excerpt|limit:180}',
 					__(
 						'Excerpt, up to 180 characters',
-						'social-relay-for-postiz'
+						'color-vivo-social-publishing-for-postiz'
 					),
 				],
 				[
 					'{content|words:40}',
 					__(
 						'First 40 words of the content',
-						'social-relay-for-postiz'
+						'color-vivo-social-publishing-for-postiz'
 					),
 				],
 				[
 					'{url}',
-					__( 'Link to the post', 'social-relay-for-postiz' ),
+					__( 'Link to the post', 'color-vivo-social-publishing-for-postiz' ),
 				],
 				[
 					'{shortlink}',
-					__( 'Short link', 'social-relay-for-postiz' ),
+					__( 'Short link', 'color-vivo-social-publishing-for-postiz' ),
 				],
-				[ '{author}', __( 'Author', 'social-relay-for-postiz' ) ],
-				[ '{date}', __( 'Date', 'social-relay-for-postiz' ) ],
+				[ '{author}', __( 'Author', 'color-vivo-social-publishing-for-postiz' ) ],
+				[ '{date}', __( 'Date', 'color-vivo-social-publishing-for-postiz' ) ],
 				[
 					'{reading_time}',
-					__( 'Minutes to read', 'social-relay-for-postiz' ),
+					__( 'Minutes to read', 'color-vivo-social-publishing-for-postiz' ),
 				],
 			],
 		},
 		{
-			label: __( 'Categories and tags', 'social-relay-for-postiz' ),
+			label: __( 'Categories and tags', 'color-vivo-social-publishing-for-postiz' ),
 			tags: [
 				[
 					'{first_category}',
 					__(
 						'Main category (Yoast or Rank Math) or the first one',
-						'social-relay-for-postiz'
+						'color-vivo-social-publishing-for-postiz'
 					),
 				],
 				[
 					'{categories}',
-					__( 'All categories', 'social-relay-for-postiz' ),
+					__( 'All categories', 'color-vivo-social-publishing-for-postiz' ),
 				],
 				[
 					'{hashtags:post_tag}',
-					__( 'Tags as #hashtags', 'social-relay-for-postiz' ),
+					__( 'Tags as #hashtags', 'color-vivo-social-publishing-for-postiz' ),
 				],
 				[
 					'{categories|hashtag}',
-					__( 'Categories as #hashtags', 'social-relay-for-postiz' ),
+					__( 'Categories as #hashtags', 'color-vivo-social-publishing-for-postiz' ),
 				],
 			],
 		},
 		{
-			label: __( 'Site and SEO', 'social-relay-for-postiz' ),
+			label: __( 'Site and SEO', 'color-vivo-social-publishing-for-postiz' ),
 			tags: [
-				[ '{site_name}', __( 'Site name', 'social-relay-for-postiz' ) ],
+				[ '{site_name}', __( 'Site name', 'color-vivo-social-publishing-for-postiz' ) ],
 				[
 					'{seo_title}',
-					__( 'SEO title, or the title', 'social-relay-for-postiz' ),
+					__( 'SEO title, or the title', 'color-vivo-social-publishing-for-postiz' ),
 				],
 				[
 					'{seo_description}',
 					__(
 						'Meta description, or the excerpt',
-						'social-relay-for-postiz'
+						'color-vivo-social-publishing-for-postiz'
 					),
 				],
 			],
 		},
 		{
-			label: __( 'Threads', 'social-relay-for-postiz' ),
+			label: __( 'Threads', 'color-vivo-social-publishing-for-postiz' ),
 			tags: [
 				[
 					'\n---\n',
-					__( 'New part of the thread', 'social-relay-for-postiz' ),
+					__( 'New part of the thread', 'color-vivo-social-publishing-for-postiz' ),
 				],
 			],
 		},
@@ -129,8 +129,8 @@ export default function TagMenu( { onInsert } ) {
 	return (
 		<DropdownMenu
 			icon="editor-code"
-			text={ __( 'Insert tag', 'social-relay-for-postiz' ) }
-			label={ __( 'Insert tag', 'social-relay-for-postiz' ) }
+			text={ __( 'Insert tag', 'color-vivo-social-publishing-for-postiz' ) }
+			label={ __( 'Insert tag', 'color-vivo-social-publishing-for-postiz' ) }
 			toggleProps={ { variant: 'secondary', size: 'compact' } }
 			popoverProps={ { className: 'socialrelaycvi-tag-menu' } }
 		>

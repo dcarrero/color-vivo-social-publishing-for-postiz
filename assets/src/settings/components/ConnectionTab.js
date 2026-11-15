@@ -35,11 +35,11 @@ export default function ConnectionTab( { settings, setSettings, goTo } ) {
 	const keyHelp = {
 		env: __(
 			'Read from the POSTIZ_API_KEY environment variable.',
-			'social-relay-for-postiz'
+			'color-vivo-social-publishing-for-postiz'
 		),
 		constant: __(
 			'Defined in wp-config.php (SOCIALRELAYCVI_POSTIZ_API_KEY).',
-			'social-relay-for-postiz'
+			'color-vivo-social-publishing-for-postiz'
 		),
 	}[ connection.key_source ];
 
@@ -80,12 +80,12 @@ export default function ConnectionTab( { settings, setSettings, goTo } ) {
 	);
 	let status = {
 		kind: 'off',
-		text: __( 'Not connected', 'social-relay-for-postiz' ),
+		text: __( 'Not connected', 'color-vivo-social-publishing-for-postiz' ),
 	};
 	if ( connection.configured && settings.channelsError ) {
 		status = {
 			kind: 'error',
-			text: __( 'Cannot reach Postiz', 'social-relay-for-postiz' ),
+			text: __( 'Cannot reach Postiz', 'color-vivo-social-publishing-for-postiz' ),
 		};
 	} else if ( connection.configured ) {
 		status = {
@@ -96,7 +96,7 @@ export default function ConnectionTab( { settings, setSettings, goTo } ) {
 					'Connected · %d channel',
 					'Connected · %d channels',
 					active.length,
-					'social-relay-for-postiz'
+					'color-vivo-social-publishing-for-postiz'
 				),
 				active.length
 			),
@@ -106,7 +106,7 @@ export default function ConnectionTab( { settings, setSettings, goTo } ) {
 	return (
 		<Card className="socialrelaycvi-connection">
 			<CardHeader>
-				<h3>{ __( 'Postiz instance', 'social-relay-for-postiz' ) }</h3>
+				<h3>{ __( 'Postiz instance', 'color-vivo-social-publishing-for-postiz' ) }</h3>
 				<span
 					className={ `socialrelaycvi-connection__status is-${ status.kind }` }
 				>
@@ -119,11 +119,11 @@ export default function ConnectionTab( { settings, setSettings, goTo } ) {
 						{ webhookStatus( settings.webhook.last ).kind === 'ok'
 							? __(
 									'Statuses update at once through the Postiz webhook.',
-									'social-relay-for-postiz'
+									'color-vivo-social-publishing-for-postiz'
 							  )
 							: __(
 									'Statuses update every 15 minutes. Set up the webhook (Webhook tab) to get them at once.',
-									'social-relay-for-postiz'
+									'color-vivo-social-publishing-for-postiz'
 							  ) }
 					</p>
 				) }
@@ -144,7 +144,7 @@ export default function ConnectionTab( { settings, setSettings, goTo } ) {
 										'Connected to Postiz. %d channel available.',
 										'Connected to Postiz. %d channels available.',
 										result.channels,
-										'social-relay-for-postiz'
+										'color-vivo-social-publishing-for-postiz'
 									),
 									result.channels
 							  )
@@ -153,7 +153,7 @@ export default function ConnectionTab( { settings, setSettings, goTo } ) {
 				) }
 
 				<TextControl
-					label={ __( 'Postiz URL', 'social-relay-for-postiz' ) }
+					label={ __( 'Postiz URL', 'color-vivo-social-publishing-for-postiz' ) }
 					type="url"
 					value={ url }
 					placeholder="https://postiz.example.com"
@@ -164,13 +164,13 @@ export default function ConnectionTab( { settings, setSettings, goTo } ) {
 									/* translators: %s: detected API URL. */
 									__(
 										'Detected API: %s',
-										'social-relay-for-postiz'
+										'color-vivo-social-publishing-for-postiz'
 									),
 									connection.api_base
 							  )
 							: __(
 									'Your self-hosted Postiz address. For Postiz Cloud, use https://api.postiz.com.',
-									'social-relay-for-postiz'
+									'color-vivo-social-publishing-for-postiz'
 							  )
 					}
 					__nextHasNoMarginBottom
@@ -181,7 +181,7 @@ export default function ConnectionTab( { settings, setSettings, goTo } ) {
 
 				{ connection.key_editable ? (
 					<TextControl
-						label={ __( 'API key', 'social-relay-for-postiz' ) }
+						label={ __( 'API key', 'color-vivo-social-publishing-for-postiz' ) }
 						type="password"
 						autoComplete="off"
 						value={ key }
@@ -189,13 +189,13 @@ export default function ConnectionTab( { settings, setSettings, goTo } ) {
 							connection.masked_key ||
 							__(
 								'Paste your API key',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							)
 						}
 						onChange={ setKey }
 						help={ __(
 							'In Postiz: Settings → Developers → Public API. Leave it empty to keep the current key.',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						) }
 						__nextHasNoMarginBottom
 						__next40pxDefaultSize
@@ -204,7 +204,7 @@ export default function ConnectionTab( { settings, setSettings, goTo } ) {
 					<>
 						<p>
 							<strong>
-								{ __( 'API key', 'social-relay-for-postiz' ) }
+								{ __( 'API key', 'color-vivo-social-publishing-for-postiz' ) }
 							</strong>
 							<br />
 							<code>{ connection.masked_key }</code>
@@ -223,7 +223,7 @@ export default function ConnectionTab( { settings, setSettings, goTo } ) {
 					>
 						{ __(
 							'Save and test connection',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						) }
 					</Button>
 					{ status.kind === 'ok' &&
@@ -237,14 +237,14 @@ export default function ConnectionTab( { settings, setSettings, goTo } ) {
 							>
 								{ __(
 									'Next: set up a publishing profile',
-									'social-relay-for-postiz'
+									'color-vivo-social-publishing-for-postiz'
 								) }
 							</Button>
 						) }
 					<ExternalLink href={ config.docsUrl }>
 						{ __(
 							'Postiz public API documentation',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						) }
 					</ExternalLink>
 				</div>
@@ -254,7 +254,7 @@ export default function ConnectionTab( { settings, setSettings, goTo } ) {
 					onCancel={ () => setHostWarning( '' ) }
 					confirmButtonText={ __(
 						'Use this address',
-						'social-relay-for-postiz'
+						'color-vivo-social-publishing-for-postiz'
 					) }
 				>
 					{ hostWarning }
@@ -263,7 +263,7 @@ export default function ConnectionTab( { settings, setSettings, goTo } ) {
 					<p className="description">
 						{ __(
 							'Developers can keep the key out of the database with SOCIALRELAYCVI_POSTIZ_API_KEY in wp-config.php or the POSTIZ_API_KEY environment variable.',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						) }
 					</p>
 				) }

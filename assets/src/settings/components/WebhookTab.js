@@ -36,13 +36,13 @@ export function webhookStatus( last ) {
 	if ( ! last ) {
 		return {
 			kind: 'off',
-			text: __( 'Never received', 'social-relay-for-postiz' ),
+			text: __( 'Never received', 'color-vivo-social-publishing-for-postiz' ),
 		};
 	}
 	const days = ( Date.now() / 1000 - last ) / 86400;
 	const text = sprintf(
 		/* translators: %s: time since the last call, e.g. "5 minutes ago". */
-		__( 'Last call %s', 'social-relay-for-postiz' ),
+		__( 'Last call %s', 'color-vivo-social-publishing-for-postiz' ),
 		humanTimeDiff( last * 1000 )
 	);
 	return { kind: days > STALE_DAYS ? 'warning' : 'ok', text };
@@ -61,7 +61,7 @@ function checkNotice( result ) {
 				status: 'success',
 				text: __(
 					'The URL answers. Postiz can use it if it can reach this site.',
-					'social-relay-for-postiz'
+					'color-vivo-social-publishing-for-postiz'
 				),
 			};
 		case 'not_found':
@@ -69,7 +69,7 @@ function checkNotice( result ) {
 				status: 'error',
 				text: __(
 					'The URL answers “not found” (404). The REST API may be off or rewritten: check the permalinks and any plugin that limits the REST API.',
-					'social-relay-for-postiz'
+					'color-vivo-social-publishing-for-postiz'
 				),
 			};
 		case 'forbidden':
@@ -79,7 +79,7 @@ function checkNotice( result ) {
 					/* translators: %d: HTTP status code. */
 					__(
 						'The URL is blocked (%d). A security plugin, Cloudflare or a firewall is stopping calls to the REST API: allow /wp-json/socialrelaycvi/v1/webhook/.',
-						'social-relay-for-postiz'
+						'color-vivo-social-publishing-for-postiz'
 					),
 					result.status
 				),
@@ -89,7 +89,7 @@ function checkNotice( result ) {
 				status: 'warning',
 				text: __(
 					'This server could not call its own address. Many hosts block that, so it does not mean Postiz cannot: use “Send test” in Postiz to be sure.',
-					'social-relay-for-postiz'
+					'color-vivo-social-publishing-for-postiz'
 				),
 			};
 		default:
@@ -99,7 +99,7 @@ function checkNotice( result ) {
 					/* translators: %d: HTTP status code. */
 					__(
 						'Unexpected answer (%d). Use “Send test” in Postiz to check it.',
-						'social-relay-for-postiz'
+						'color-vivo-social-publishing-for-postiz'
 					),
 					result.status
 				),
@@ -119,7 +119,7 @@ function HistoryRow( { call, channels } ) {
 	const { formats } = getSettings();
 	let what = __(
 		'Call without posts (a test from Postiz?).',
-		'social-relay-for-postiz'
+		'color-vivo-social-publishing-for-postiz'
 	);
 	if ( call.posts && ! call.items.length ) {
 		what = sprintf(
@@ -128,7 +128,7 @@ function HistoryRow( { call, channels } ) {
 				'%d post not sent from this site.',
 				'%d posts not sent from this site.',
 				call.posts,
-				'social-relay-for-postiz'
+				'color-vivo-social-publishing-for-postiz'
 			),
 			call.posts
 		);
@@ -160,7 +160,7 @@ function HistoryRow( { call, channels } ) {
 										{ item.post_title ||
 											__(
 												'(no title)',
-												'social-relay-for-postiz'
+												'color-vivo-social-publishing-for-postiz'
 											) }
 									</a>
 								) : (
@@ -177,7 +177,7 @@ function HistoryRow( { call, channels } ) {
 										<ExternalLink href={ item.release_url }>
 											{ __(
 												'View post',
-												'social-relay-for-postiz'
+												'color-vivo-social-publishing-for-postiz'
 											) }
 										</ExternalLink>
 									</>
@@ -275,7 +275,7 @@ export default function WebhookTab( { settings, setSettings } ) {
 			<Card className="socialrelaycvi-webhook">
 				<CardHeader>
 					<h3>
-						{ __( 'Postiz webhook', 'social-relay-for-postiz' ) }
+						{ __( 'Postiz webhook', 'color-vivo-social-publishing-for-postiz' ) }
 					</h3>
 					<span
 						className={ `socialrelaycvi-connection__status is-${ status.kind }` }
@@ -287,7 +287,7 @@ export default function WebhookTab( { settings, setSettings } ) {
 					<p>
 						{ __(
 							'Postiz calls this URL as soon as a post goes out, and the status in WordPress updates right away. Without it, the plugin asks Postiz every 15 minutes.',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						) }
 					</p>
 
@@ -297,7 +297,7 @@ export default function WebhookTab( { settings, setSettings } ) {
 								/* translators: %s: site host name, e.g. localhost. */
 								__(
 									'This site (%s) is not reachable from the internet, so Postiz can only call it if both run on the same machine or network. Statuses still update every 15 minutes.',
-									'social-relay-for-postiz'
+									'color-vivo-social-publishing-for-postiz'
 								),
 								webhook.host
 							) }
@@ -308,7 +308,7 @@ export default function WebhookTab( { settings, setSettings } ) {
 						<Notice status="warning" isDismissible={ false }>
 							{ __(
 								'No call for several days. If you published in the meantime, check that the webhook still exists in Postiz with this URL.',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							) }
 						</Notice>
 					) }
@@ -317,7 +317,7 @@ export default function WebhookTab( { settings, setSettings } ) {
 						<TextControl
 							label={ __(
 								'Webhook URL',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							) }
 							value={ webhook.url }
 							readOnly
@@ -331,8 +331,8 @@ export default function WebhookTab( { settings, setSettings } ) {
 							__next40pxDefaultSize
 						>
 							{ copied
-								? __( 'Copied', 'social-relay-for-postiz' )
-								: __( 'Copy', 'social-relay-for-postiz' ) }
+								? __( 'Copied', 'color-vivo-social-publishing-for-postiz' )
+								: __( 'Copy', 'color-vivo-social-publishing-for-postiz' ) }
 						</Button>
 					</div>
 
@@ -340,7 +340,7 @@ export default function WebhookTab( { settings, setSettings } ) {
 						<Notice status="info" isDismissible={ false }>
 							{ __(
 								'New webhook URL created. Update it in Postiz: the old one no longer works.',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							) }
 						</Notice>
 					) }
@@ -348,26 +348,26 @@ export default function WebhookTab( { settings, setSettings } ) {
 					<h4 className="socialrelaycvi-webhook__title">
 						{ __(
 							'Set it up in Postiz',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						) }
 					</h4>
 					<ol className="socialrelaycvi-webhook__steps">
 						<li>
 							{ __(
 								'In Postiz, open Settings → Webhooks and add a webhook.',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							) }
 						</li>
 						<li>
 							{ __(
 								'Give it a name (for example “WordPress”), paste the URL above and choose all channels, or the ones used on this site.',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							) }
 						</li>
 						<li>
 							{ __(
 								'Save it and press “Send test”: the call appears below within a few seconds.',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							) }
 						</li>
 					</ol>
@@ -388,7 +388,7 @@ export default function WebhookTab( { settings, setSettings } ) {
 							isBusy={ checking }
 							disabled={ checking }
 						>
-							{ __( 'Check URL', 'social-relay-for-postiz' ) }
+							{ __( 'Check URL', 'color-vivo-social-publishing-for-postiz' ) }
 						</Button>
 						<Button
 							variant="tertiary"
@@ -397,7 +397,7 @@ export default function WebhookTab( { settings, setSettings } ) {
 						>
 							{ __(
 								'Create a new URL',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							) }
 						</Button>
 					</div>
@@ -408,12 +408,12 @@ export default function WebhookTab( { settings, setSettings } ) {
 						onCancel={ () => setConfirming( false ) }
 						confirmButtonText={ __(
 							'Create new URL',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						) }
 					>
 						{ __(
 							'The current URL stops working at once, and you will have to paste the new one in Postiz. Continue?',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						) }
 					</ConfirmDialog>
 				</CardBody>
@@ -421,7 +421,7 @@ export default function WebhookTab( { settings, setSettings } ) {
 
 			<Card>
 				<CardHeader>
-					<h3>{ __( 'Last calls', 'social-relay-for-postiz' ) }</h3>
+					<h3>{ __( 'Last calls', 'color-vivo-social-publishing-for-postiz' ) }</h3>
 				</CardHeader>
 				<CardBody>
 					{ webhook.history.length ? (
@@ -438,7 +438,7 @@ export default function WebhookTab( { settings, setSettings } ) {
 						<p className="description">
 							{ __(
 								'No calls yet. The first one shows up here when Postiz publishes, or when you press “Send test”.',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							) }
 						</p>
 					) }

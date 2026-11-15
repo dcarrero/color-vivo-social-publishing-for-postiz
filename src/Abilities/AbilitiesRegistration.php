@@ -52,8 +52,8 @@ final class AbilitiesRegistration implements Module {
 		wp_register_ability_category(
 			self::CATEGORY,
 			array(
-				'label'       => __( 'Social media', 'social-relay-for-postiz' ),
-				'description' => __( 'Publishing and scheduling content on social networks.', 'social-relay-for-postiz' ),
+				'label'       => __( 'Social media', 'color-vivo-social-publishing-for-postiz' ),
+				'description' => __( 'Publishing and scheduling content on social networks.', 'color-vivo-social-publishing-for-postiz' ),
 			)
 		);
 	}
@@ -71,7 +71,7 @@ final class AbilitiesRegistration implements Module {
 			'properties'           => array(
 				'post_id' => array(
 					'type'        => 'integer',
-					'description' => __( 'WordPress post ID.', 'social-relay-for-postiz' ),
+					'description' => __( 'WordPress post ID.', 'color-vivo-social-publishing-for-postiz' ),
 					'minimum'     => 1,
 				),
 			),
@@ -85,8 +85,8 @@ final class AbilitiesRegistration implements Module {
 
 		$this->ability(
 			'get-status',
-			__( 'Get Postiz connection status', 'social-relay-for-postiz' ),
-			__( 'Returns whether the site is connected to Postiz, the instance URL, the detected API path and where the API key comes from. Never returns the key.', 'social-relay-for-postiz' ),
+			__( 'Get Postiz connection status', 'color-vivo-social-publishing-for-postiz' ),
+			__( 'Returns whether the site is connected to Postiz, the instance URL, the detected API path and where the API key comes from. Never returns the key.', 'color-vivo-social-publishing-for-postiz' ),
 			array( $this, 'get_status' ),
 			$can_manage,
 			null,
@@ -105,8 +105,8 @@ final class AbilitiesRegistration implements Module {
 
 		$this->ability(
 			'list-channels',
-			__( 'List social channels', 'social-relay-for-postiz' ),
-			__( 'Lists the social network channels connected in Postiz (id, name, network identifier, disabled).', 'social-relay-for-postiz' ),
+			__( 'List social channels', 'color-vivo-social-publishing-for-postiz' ),
+			__( 'Lists the social network channels connected in Postiz (id, name, network identifier, disabled).', 'color-vivo-social-publishing-for-postiz' ),
 			array( $this, 'list_channels' ),
 			$can_edit,
 			null,
@@ -127,8 +127,8 @@ final class AbilitiesRegistration implements Module {
 
 		$this->ability(
 			'preview-post',
-			__( 'Preview social posts', 'social-relay-for-postiz' ),
-			__( 'Shows the message each channel would receive for a post (templates, UTM and limits applied) without sending anything.', 'social-relay-for-postiz' ),
+			__( 'Preview social posts', 'color-vivo-social-publishing-for-postiz' ),
+			__( 'Shows the message each channel would receive for a post (templates, UTM and limits applied) without sending anything.', 'color-vivo-social-publishing-for-postiz' ),
 			array( $this, 'preview_post' ),
 			$can_edit_post,
 			$post_input,
@@ -138,8 +138,8 @@ final class AbilitiesRegistration implements Module {
 
 		$this->ability(
 			'share-post',
-			__( 'Share a post on social networks', 'social-relay-for-postiz' ),
-			__( 'Queues a published post to be sent to Postiz with its publishing profile. Use preview-post first to check the messages.', 'social-relay-for-postiz' ),
+			__( 'Share a post on social networks', 'color-vivo-social-publishing-for-postiz' ),
+			__( 'Queues a published post to be sent to Postiz with its publishing profile. Use preview-post first to check the messages.', 'color-vivo-social-publishing-for-postiz' ),
 			array( $this, 'share_post' ),
 			$can_edit_post,
 			array(
@@ -148,7 +148,7 @@ final class AbilitiesRegistration implements Module {
 					'post_id' => $post_input['properties']['post_id'],
 					'force'   => array(
 						'type'        => 'boolean',
-						'description' => __( 'Send even if the same content was already sent.', 'social-relay-for-postiz' ),
+						'description' => __( 'Send even if the same content was already sent.', 'color-vivo-social-publishing-for-postiz' ),
 						'default'     => false,
 					),
 				),
@@ -168,8 +168,8 @@ final class AbilitiesRegistration implements Module {
 
 		$this->ability(
 			'get-post-shares',
-			__( 'Get social sharing status of a post', 'social-relay-for-postiz' ),
-			__( 'Lists what was sent to Postiz for a post: channel, status (queued, published, error, draft, cancelled), publish date, published URL and error.', 'social-relay-for-postiz' ),
+			__( 'Get social sharing status of a post', 'color-vivo-social-publishing-for-postiz' ),
+			__( 'Lists what was sent to Postiz for a post: channel, status (queued, published, error, draft, cancelled), publish date, published URL and error.', 'color-vivo-social-publishing-for-postiz' ),
 			array( $this, 'get_post_shares' ),
 			$can_edit_post,
 			$post_input,
@@ -179,8 +179,8 @@ final class AbilitiesRegistration implements Module {
 
 		$this->ability(
 			'cancel-post-shares',
-			__( 'Cancel pending social posts', 'social-relay-for-postiz' ),
-			__( 'Deletes in Postiz the drafts and future scheduled posts of a WordPress post. Posts already published on the networks are not touched.', 'social-relay-for-postiz' ),
+			__( 'Cancel pending social posts', 'color-vivo-social-publishing-for-postiz' ),
+			__( 'Deletes in Postiz the drafts and future scheduled posts of a WordPress post. Posts already published on the networks are not touched.', 'color-vivo-social-publishing-for-postiz' ),
 			array( $this, 'cancel_post_shares' ),
 			$can_edit_post,
 			$post_input,
@@ -267,7 +267,7 @@ final class AbilitiesRegistration implements Module {
 
 		if ( ! empty( $input['force'] ) ) {
 			if ( ! ShareService::claim_reshare_slot( $post->ID ) ) {
-				return new WP_Error( 'socialrelaycvi_too_soon', __( 'This post was just sent. Wait a minute before sharing it again.', 'social-relay-for-postiz' ) );
+				return new WP_Error( 'socialrelaycvi_too_soon', __( 'This post was just sent. Wait a minute before sharing it again.', 'color-vivo-social-publishing-for-postiz' ) );
 			}
 			update_post_meta( $post->ID, PostMeta::RESHARE, true );
 		}
@@ -363,6 +363,6 @@ final class AbilitiesRegistration implements Module {
 	private function post( array $input ): WP_Post|WP_Error {
 		$post = get_post( (int) ( $input['post_id'] ?? 0 ) );
 
-		return $post instanceof WP_Post ? $post : new WP_Error( 'socialrelaycvi_not_found', __( 'Post not found.', 'social-relay-for-postiz' ) );
+		return $post instanceof WP_Post ? $post : new WP_Error( 'socialrelaycvi_not_found', __( 'Post not found.', 'color-vivo-social-publishing-for-postiz' ) );
 	}
 }

@@ -1,4 +1,4 @@
-=== Social Relay for Postiz ===
+=== Color Vivo Social Publishing for Postiz ===
 Contributors: dcarrero
 Tags: postiz, social media, auto post, schedule, self-hosted
 Requires at least: 7.0
@@ -12,7 +12,7 @@ Auto-publish and schedule your WordPress content on social networks through your
 
 == Description ==
 
-Social Relay for Postiz connects WordPress directly to the public API of **your** Postiz instance. No middleman service, no extra account: enter your Postiz URL and API key, and WordPress sends your posts to the channels you already connected in Postiz (X, LinkedIn, Bluesky, Mastodon, Threads, Instagram, Facebook, Pinterest, Telegram and many more).
+Color Vivo Social Publishing for Postiz connects WordPress directly to the public API of **your** Postiz instance. No middleman service, no extra account: enter your Postiz URL and API key, and WordPress sends your posts to the channels you already connected in Postiz (X, LinkedIn, Bluesky, Mastodon, Threads, Instagram, Facebook, Pinterest, Telegram and many more).
 
 Works with self-hosted Postiz and with Postiz Cloud.
 
@@ -53,17 +53,17 @@ Works with self-hosted Postiz and with Postiz Cloud.
 = For developers and AI agents =
 
 * **WordPress 7 Connectors**: Postiz appears in Settings → Connectors. The API key can come from an environment variable, a constant or the database.
-* **WP-CLI**: `wp social-relay status|test|channels|preview|share|shares|cancel|sync|log`.
+* **WP-CLI**: `wp social-publishing status|test|channels|preview|share|shares|cancel|sync|log`.
 * **Abilities API**: preview, share and check social posts from AI agents through the MCP Adapter.
 * **Hooks** to change the message, the request sent to Postiz, the post types and more. See the [developer documentation](https://github.com/dcarrero/social-relay-for-postiz).
 
-Social Relay for Postiz is a product by [Color Vivo](https://colorvivo.com). It is not affiliated with or endorsed by Postiz.
+Color Vivo Social Publishing for Postiz is a product by [Color Vivo](https://colorvivo.com). It is not affiliated with or endorsed by Postiz.
 
 == Installation ==
 
 1. Install and activate the plugin.
 2. In Postiz, open Settings → Developers → Public API and copy your API key.
-3. In WordPress, go to Social Relay → Settings → Connection, enter your Postiz URL and the API key, and click "Save and test connection".
+3. In WordPress, go to Social Publishing → Settings → Connection, enter your Postiz URL and the API key, and click "Save and test connection".
 4. In "Publishing profiles", choose the channels, template and timing for each post type.
 5. Optional: in "Webhook", copy the URL into Postiz → Settings → Webhooks to see each post's status as soon as it is published.
 
@@ -101,7 +101,7 @@ Filters go inside a tag and can be chained: `|limit:180` (characters), `|words:3
 
 = How do I set up the Postiz webhook? =
 
-In Social Relay → Settings → Webhook, copy the URL. In Postiz open Settings → Webhooks, add a webhook, paste the URL, choose the channels and press "Send test": the call appears in the "Last calls" list. The webhook only makes statuses update at once; without it they update every 15 minutes. The URL contains a secret, and the plugin never trusts what the call says: it asks the Postiz API for the real status. "Check URL" tells you if a security plugin or a firewall blocks it.
+In Social Publishing → Settings → Webhook, copy the URL. In Postiz open Settings → Webhooks, add a webhook, paste the URL, choose the channels and press "Send test": the call appears in the "Last calls" list. The webhook only makes statuses update at once; without it they update every 15 minutes. The URL contains a secret, and the plugin never trusts what the call says: it asks the Postiz API for the real status. "Check URL" tells you if a security plugin or a firewall blocks it.
 
 = Will my posts be shared twice if I update them? =
 
@@ -117,7 +117,7 @@ The key is never sent to the browser and never written to the log. For extra saf
 
 = Where do I see what was sent? =
 
-In the editor panel of each post, in Social Relay → Log, and in the dashboard widget.
+In the editor panel of each post, in Social Publishing → Log, and in the dashboard widget.
 
 == Screenshots ==
 

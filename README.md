@@ -1,4 +1,4 @@
-# Social Relay for Postiz
+# Color Vivo Social Publishing for Postiz
 
 WordPress plugin that auto-publishes and schedules your content on social networks through **your own Postiz instance** (self-hosted or Postiz Cloud). WordPress talks directly to the Postiz public API: no middleman service.
 
@@ -19,7 +19,7 @@ WordPress plugin that auto-publishes and schedules your content on social networ
 - "Test this profile" panel in the settings: pick a post and see what the saved profile would send.
 - Export and import of publishing profiles (JSON) to copy them between sites.
 - REST routes for status, channels, a post's shares and a dry-run preview.
-- WP-CLI: `wp social-relay status|test|channels|preview|share|shares|cancel|sync|log` (`wp help social-relay` for details).
+- WP-CLI: `wp social-publishing status|test|channels|preview|share|shares|cancel|sync|log` (`wp help social-publishing` for details).
 - Abilities API: `socialrelaycvi/get-status`, `list-channels`, `preview-post`, `share-post`, `get-post-shares`, `cancel-post-shares`, available to AI agents through the MCP Adapter.
 - English base, Spanish (es_ES) translation included.
 
@@ -33,7 +33,7 @@ npm run start      # same, rebuilding on every change
 npm run lint:js    # WordPress ESLint rules
 npm run lint:css   # WordPress stylelint rules
 npm run env start  # WordPress in Docker (@wordpress/env) at http://localhost:8890, admin/password
-npm run env run cli wp social-relay status   # WP-CLI inside that site
+npm run env run cli wp social-publishing status   # WP-CLI inside that site
 composer test      # PHPUnit (unit tests, no WordPress needed)
 composer lint      # PHPCS with WordPress Coding Standards + PHPCompatibility
 composer analyse   # PHPStan
@@ -45,7 +45,7 @@ To try it against a Postiz on your machine or LAN, add `define( 'SOCIALRELAYCVI_
 
 | Path | What it does |
 |---|---|
-| `social-relay-for-postiz.php` | Bootstrap: requirements, autoload, Action Scheduler, hooks |
+| `color-vivo-social-publishing-for-postiz.php` | Bootstrap: requirements, autoload, Action Scheduler, hooks |
 | `src/Plugin.php` | Service container and module registry (`socialrelaycvi_modules` filter) |
 | `src/Postiz/` | API client, endpoint detection, channel cache, per-network rules |
 | `src/Templates/` | Template engine (`{tags}`, `\|filters`, `---` threads) and post context |
@@ -78,7 +78,7 @@ Other hooks: `socialrelaycvi_gateway`, `socialrelaycvi_status_changed`, `socialr
 ## Releases
 
 ```bash
-bin/build-release.sh            # dist/social-relay-for-postiz.zip, ready to install or upload
+bin/build-release.sh            # dist/color-vivo-social-publishing-for-postiz.zip, ready to install or upload
 git tag -a v1.0.0 -m "1.0.0" && git push --tags   # CI builds the zip and publishes the release
 ```
 
@@ -86,17 +86,17 @@ The release workflow deploys to wordpress.org SVN when the repository has the `S
 
 ## Brand
 
-Social Relay has its own identity (a node passing the baton and fanning out into signals) in Relay Violet `#5B3DF5`, Signal Coral `#FF6A3D` and Ink `#14122B`, with Space Grotesk and Inter. It is a product by [Color Vivo](https://colorvivo.com).
+Color Vivo Social Publishing for Postiz is a product by [Color Vivo](https://colorvivo.com). It is not affiliated with or endorsed by Postiz.
 
 ## Translations
 
-All strings are written in English with the `social-relay-for-postiz` text domain. `languages/` holds the `.pot` template and the Spanish (`es_ES`) translation, ready to import into translate.wordpress.org. On wordpress.org, WordPress loads translations from the language packs; the plugin does not call `load_plugin_textdomain()`.
+All strings are written in English with the `color-vivo-social-publishing-for-postiz` text domain. `languages/` holds the `.pot` template and the Spanish (`es_ES`) translation, ready to import into translate.wordpress.org. They stay in the repository only: the release zip leaves `languages/` out, as wordpress.org asks, and WordPress loads translations (PHP and JavaScript) from the language packs; the plugin does not call `load_plugin_textdomain()`.
 
 ```bash
 composer i18n   # regenerate the .pot, update the .po files and compile the .mo files
 ```
 
-In JavaScript, write the text domain literally in every call (`__( 'Text', 'social-relay-for-postiz' )`) so the extractor finds it; run `npm run build` before `composer i18n`, because strings are extracted from `build/`. When adding strings: use `_x()` when a word has more than one meaning (e.g. "Post"), `_n()` for counts, and a `translators:` comment for every placeholder.
+In JavaScript, write the text domain literally in every call (`__( 'Text', 'color-vivo-social-publishing-for-postiz' )`) so the extractor finds it; run `npm run build` before `composer i18n`, because strings are extracted from `build/`. When adding strings: use `_x()` when a word has more than one meaning (e.g. "Post"), `_n()` for counts, and a `translators:` comment for every placeholder.
 
 ## License
 

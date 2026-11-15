@@ -1,5 +1,5 @@
 /**
- * Social Relay for Postiz: block editor panel.
+ * Color Vivo Social Publishing for Postiz: block editor panel.
  *
  * Built with @wordpress/scripts into build/editor-panel.js. The @wordpress/*
  * packages are not bundled: they come from WordPress (see build/editor-panel.asset.php).
@@ -21,11 +21,11 @@ if ( config ) {
 		render: () => (
 			<>
 				<PluginSidebarMoreMenuItem target={ SIDEBAR } icon={ ICON }>
-					{ __( 'Social Relay', 'social-relay-for-postiz' ) }
+					{ __( 'Social Publishing', 'color-vivo-social-publishing-for-postiz' ) }
 				</PluginSidebarMoreMenuItem>
 				<PluginSidebar
 					name={ SIDEBAR }
-					title={ __( 'Social networks', 'social-relay-for-postiz' ) }
+					title={ __( 'Social networks', 'color-vivo-social-publishing-for-postiz' ) }
 					icon={ ICON }
 				>
 					<Sidebar />

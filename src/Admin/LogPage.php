@@ -46,8 +46,8 @@ final class LogPage implements Module {
 	public function add_menu(): void {
 		$hook = add_submenu_page(
 			SettingsPage::SLUG,
-			__( 'Log', 'social-relay-for-postiz' ),
-			__( 'Log', 'social-relay-for-postiz' ),
+			__( 'Log', 'color-vivo-social-publishing-for-postiz' ),
+			__( 'Log', 'color-vivo-social-publishing-for-postiz' ),
 			SettingsPage::CAPABILITY,
 			self::SLUG,
 			array( $this, 'render' )
@@ -89,7 +89,7 @@ final class LogPage implements Module {
 	 */
 	public function render(): void {
 		if ( current_user_can( SettingsPage::CAPABILITY ) ) {
-			AdminApp::render_root( 'socialrelaycvi-log', $this->loaded, __( 'Log', 'social-relay-for-postiz' ) );
+			AdminApp::render_root( 'socialrelaycvi-log', $this->loaded, __( 'Log', 'color-vivo-social-publishing-for-postiz' ) );
 		}
 	}
 }

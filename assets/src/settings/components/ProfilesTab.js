@@ -37,7 +37,7 @@ export default function ProfilesTab( {
 			<Notice status="warning" isDismissible={ false }>
 				{ __(
 					'Connect Postiz first (Connection tab).',
-					'social-relay-for-postiz'
+					'color-vivo-social-publishing-for-postiz'
 				) }
 			</Notice>
 		);
@@ -74,7 +74,7 @@ export default function ProfilesTab( {
 				<Marked
 					label={ info.label }
 					marked={ !! profiles[ name ]?.enabled }
-					note={ __( 'sharing on', 'social-relay-for-postiz' ) }
+					note={ __( 'sharing on', 'color-vivo-social-publishing-for-postiz' ) }
 				/>
 			),
 		} )
@@ -99,7 +99,7 @@ export default function ProfilesTab( {
 			<p className="description">
 				{ __(
 					'One profile per type of content: turn sharing on, pick the channels, adjust the message and save. Posts are then shared when you publish them.',
-					'social-relay-for-postiz'
+					'color-vivo-social-publishing-for-postiz'
 				) }
 			</p>
 			<TabPanel
@@ -145,16 +145,16 @@ export default function ProfilesTab( {
 					disabled={ busy || ! dirty }
 					__next40pxDefaultSize
 				>
-					{ __( 'Save profiles', 'social-relay-for-postiz' ) }
+					{ __( 'Save profiles', 'color-vivo-social-publishing-for-postiz' ) }
 				</Button>
 				{ dirty && (
 					<span className="description">
-						{ __( 'Unsaved changes', 'social-relay-for-postiz' ) }
+						{ __( 'Unsaved changes', 'color-vivo-social-publishing-for-postiz' ) }
 					</span>
 				) }
 				{ saved && ! dirty && (
 					<span className="socialrelaycvi-settings__saved">
-						{ __( 'Profiles saved.', 'social-relay-for-postiz' ) }
+						{ __( 'Profiles saved.', 'color-vivo-social-publishing-for-postiz' ) }
 					</span>
 				) }
 			</div>

@@ -26,7 +26,7 @@ use WP_Term;
  */
 final class ProfileTransfer {
 
-	public const FORMAT = 'social-relay-for-postiz/profiles';
+	public const FORMAT = 'color-vivo-social-publishing-for-postiz/profiles';
 
 	public const FORMAT_VERSION = 1;
 

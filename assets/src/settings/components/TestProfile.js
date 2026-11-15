@@ -56,7 +56,7 @@ export default function TestProfile( { postType, dirty } ) {
 							value: post.id,
 							label:
 								decodeEntities( post.title?.rendered || '' ) ||
-								__( '(no title)', 'social-relay-for-postiz' ),
+								__( '(no title)', 'color-vivo-social-publishing-for-postiz' ),
 						} ) )
 					);
 				} )
@@ -87,21 +87,21 @@ export default function TestProfile( { postType, dirty } ) {
 		<Card className="socialrelaycvi-settings__test">
 			<CardHeader>
 				<h3>
-					{ __( 'Test this profile', 'social-relay-for-postiz' ) }
+					{ __( 'Test this profile', 'color-vivo-social-publishing-for-postiz' ) }
 				</h3>
 			</CardHeader>
 			<CardBody>
 				<p className="description">
 					{ __(
 						'Pick a post to see the messages the saved profile would send. Nothing is sent.',
-						'social-relay-for-postiz'
+						'color-vivo-social-publishing-for-postiz'
 					) }
 				</p>
 				{ dirty && (
 					<Notice status="warning" isDismissible={ false }>
 						{ __(
 							'Save the profile to test your latest changes.',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						) }
 					</Notice>
 				) }
@@ -113,7 +113,7 @@ export default function TestProfile( { postType, dirty } ) {
 					onFilterValueChange={ setSearch }
 					placeholder={ __(
 						'Type to search a post…',
-						'social-relay-for-postiz'
+						'color-vivo-social-publishing-for-postiz'
 					) }
 					__nextHasNoMarginBottom
 					__next40pxDefaultSize
@@ -131,7 +131,7 @@ export default function TestProfile( { postType, dirty } ) {
 							<Notice status="warning" isDismissible={ false }>
 								{ __(
 									'This post does not match the profile conditions and will not be shared.',
-									'social-relay-for-postiz'
+									'color-vivo-social-publishing-for-postiz'
 								) }
 							</Notice>
 						) }
@@ -148,7 +148,7 @@ export default function TestProfile( { postType, dirty } ) {
 								<p>
 									{ __(
 										'No channels selected.',
-										'social-relay-for-postiz'
+										'color-vivo-social-publishing-for-postiz'
 									) }
 								</p>
 							) }

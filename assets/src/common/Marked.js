@@ -19,7 +19,7 @@ export default function Marked( { label, marked, note } ) {
 					<span className="screen-reader-text">
 						{ ` (${
 							note ||
-							__( 'customized', 'social-relay-for-postiz' )
+							__( 'customized', 'color-vivo-social-publishing-for-postiz' )
 						})` }
 					</span>
 				</>

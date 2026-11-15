@@ -41,8 +41,8 @@ final class SettingsPage implements Module {
 	 */
 	public function add_menu(): void {
 		$hook = add_menu_page(
-			__( 'Social Relay for Postiz', 'social-relay-for-postiz' ),
-			__( 'Social Relay', 'social-relay-for-postiz' ),
+			__( 'Color Vivo Social Publishing for Postiz', 'color-vivo-social-publishing-for-postiz' ),
+			__( 'Social Publishing', 'color-vivo-social-publishing-for-postiz' ),
 			self::CAPABILITY,
 			self::SLUG,
 			array( $this, 'render' ),
@@ -50,7 +50,7 @@ final class SettingsPage implements Module {
 			30
 		);
 
-		add_submenu_page( self::SLUG, __( 'Settings', 'social-relay-for-postiz' ), __( 'Settings', 'social-relay-for-postiz' ), self::CAPABILITY, self::SLUG, array( $this, 'render' ) );
+		add_submenu_page( self::SLUG, __( 'Settings', 'color-vivo-social-publishing-for-postiz' ), __( 'Settings', 'color-vivo-social-publishing-for-postiz' ), self::CAPABILITY, self::SLUG, array( $this, 'render' ) );
 
 		add_action( 'load-' . $hook, array( $this, 'enqueue' ) );
 	}
@@ -76,7 +76,7 @@ final class SettingsPage implements Module {
 	 * @return array<string>
 	 */
 	public function action_links( array $links ): array {
-		array_unshift( $links, sprintf( '<a href="%s">%s</a>', esc_url( admin_url( 'admin.php?page=' . self::SLUG ) ), esc_html__( 'Settings', 'social-relay-for-postiz' ) ) );
+		array_unshift( $links, sprintf( '<a href="%s">%s</a>', esc_url( admin_url( 'admin.php?page=' . self::SLUG ) ), esc_html__( 'Settings', 'color-vivo-social-publishing-for-postiz' ) ) );
 
 		return $links;
 	}
@@ -86,7 +86,7 @@ final class SettingsPage implements Module {
 	 */
 	public function render(): void {
 		if ( current_user_can( self::CAPABILITY ) ) {
-			AdminApp::render_root( 'socialrelaycvi-settings', $this->loaded, __( 'Social Relay for Postiz', 'social-relay-for-postiz' ) );
+			AdminApp::render_root( 'socialrelaycvi-settings', $this->loaded, __( 'Color Vivo Social Publishing for Postiz', 'color-vivo-social-publishing-for-postiz' ) );
 		}
 	}
 }

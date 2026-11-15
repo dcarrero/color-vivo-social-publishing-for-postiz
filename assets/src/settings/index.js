@@ -1,5 +1,5 @@
 /**
- * Social Relay for Postiz: settings screen.
+ * Color Vivo Social Publishing for Postiz: settings screen.
  */
 import apiFetch from '@wordpress/api-fetch';
 import { Notice, Spinner, TabPanel } from '@wordpress/components';
@@ -56,25 +56,25 @@ function SettingsApp() {
 	const tabs = [
 		{
 			name: 'connection',
-			title: __( 'Connection', 'social-relay-for-postiz' ),
+			title: __( 'Connection', 'color-vivo-social-publishing-for-postiz' ),
 		},
 		{
 			name: 'profiles',
 			title:
-				__( 'Publishing profiles', 'social-relay-for-postiz' ) +
+				__( 'Publishing profiles', 'color-vivo-social-publishing-for-postiz' ) +
 				( dirty ? ' *' : '' ),
 		},
-		{ name: 'webhook', title: __( 'Webhook', 'social-relay-for-postiz' ) },
+		{ name: 'webhook', title: __( 'Webhook', 'color-vivo-social-publishing-for-postiz' ) },
 		{
 			name: 'advanced',
-			title: __( 'Advanced', 'social-relay-for-postiz' ),
+			title: __( 'Advanced', 'color-vivo-social-publishing-for-postiz' ),
 		},
 	];
 
 	return (
 		<div className="socialrelaycvi-settings">
 			<h1>
-				{ __( 'Social Relay for Postiz', 'social-relay-for-postiz' ) }
+				{ __( 'Color Vivo Social Publishing for Postiz', 'color-vivo-social-publishing-for-postiz' ) }
 			</h1>
 			<TabPanel
 				key={ tab.key }

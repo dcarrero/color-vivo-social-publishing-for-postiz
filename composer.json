@@ -1,11 +1,11 @@
 {
-	"name": "dcarrero/social-relay-for-postiz",
+	"name": "dcarrero/color-vivo-social-publishing-for-postiz",
 	"description": "Auto-publish WordPress content to social networks through your own Postiz instance.",
 	"type": "wordpress-plugin",
 	"license": "GPL-2.0-or-later",
 	"require": {
 		"php": ">=8.2",
-		"woocommerce/action-scheduler": "^3.9"
+		"woocommerce/action-scheduler": "^4.2"
 	},
 	"require-dev": {
 		"dealerdirect/phpcodesniffer-composer-installer": "^1.0",
@@ -44,8 +44,8 @@
 		"analyse": "phpstan analyse --memory-limit=1G",
 		"test": "phpunit",
 		"i18n": [
-			"wp i18n make-pot . languages/social-relay-for-postiz.pot --slug=social-relay-for-postiz --domain=social-relay-for-postiz --exclude=vendor,tests,node_modules,assets/src",
-			"wp i18n update-po languages/social-relay-for-postiz.pot languages/",
+			"wp i18n make-pot . languages/color-vivo-social-publishing-for-postiz.pot --slug=color-vivo-social-publishing-for-postiz --domain=color-vivo-social-publishing-for-postiz --exclude=vendor,tests,node_modules,assets/src",
+			"wp i18n update-po languages/color-vivo-social-publishing-for-postiz.pot languages/",
 			"wp i18n make-mo languages/",
 			"wp i18n make-json languages/ --pretty-print"
 		]

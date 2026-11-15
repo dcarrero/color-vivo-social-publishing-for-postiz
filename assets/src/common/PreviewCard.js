@@ -56,7 +56,7 @@ export default function PreviewCard( { item, linkTitle } ) {
 				>
 					{ item.limit ? `${ longest } / ${ item.limit }` : longest }
 					<span className="screen-reader-text">
-						{ ' ' + __( 'characters', 'social-relay-for-postiz' ) }
+						{ ' ' + __( 'characters', 'color-vivo-social-publishing-for-postiz' ) }
 					</span>
 				</span>
 			</div>
@@ -105,7 +105,7 @@ export default function PreviewCard( { item, linkTitle } ) {
 							'Thread of %d part.',
 							'Thread of %d parts.',
 							item.parts.length,
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						),
 						item.parts.length
 					) }
@@ -116,7 +116,7 @@ export default function PreviewCard( { item, linkTitle } ) {
 				<p className="socialrelaycvi-card__note is-over">
 					{ __(
 						'Longer than the network allows: it will be shortened.',
-						'social-relay-for-postiz'
+						'color-vivo-social-publishing-for-postiz'
 					) }
 				</p>
 			) }

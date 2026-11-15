@@ -69,7 +69,7 @@ export function timingLabel( meta ) {
 	if ( mode === 'schedule' && publishAt ) {
 		return sprintf(
 			/* translators: %s: date and time. */
-			__( 'Scheduled for %s', 'social-relay-for-postiz' ),
+			__( 'Scheduled for %s', 'color-vivo-social-publishing-for-postiz' ),
 			siteDateLabel( publishAt )
 		);
 	}
@@ -137,16 +137,16 @@ export function modeLabel( mode ) {
 				/* translators: %d: minutes of delay. */
 				__(
 					'Scheduled %d minutes after publishing',
-					'social-relay-for-postiz'
+					'color-vivo-social-publishing-for-postiz'
 				),
 				config.profile.delayMinutes
 			);
 		case 'slot':
-			return __( 'Next free time in Postiz', 'social-relay-for-postiz' );
+			return __( 'Next free time in Postiz', 'color-vivo-social-publishing-for-postiz' );
 		case 'draft':
-			return __( 'Draft in Postiz', 'social-relay-for-postiz' );
+			return __( 'Draft in Postiz', 'color-vivo-social-publishing-for-postiz' );
 		default:
-			return __( 'Right away', 'social-relay-for-postiz' );
+			return __( 'Right away', 'color-vivo-social-publishing-for-postiz' );
 	}
 }
 
@@ -158,12 +158,12 @@ export function modeLabel( mode ) {
  */
 export function statusLabel( status ) {
 	const labels = {
-		queued: __( 'Queued', 'social-relay-for-postiz' ),
-		published: __( 'Published', 'social-relay-for-postiz' ),
-		error: __( 'Error', 'social-relay-for-postiz' ),
-		draft: __( 'Draft in Postiz', 'social-relay-for-postiz' ),
-		cancelled: __( 'Cancelled', 'social-relay-for-postiz' ),
-		pending: __( 'Pending', 'social-relay-for-postiz' ),
+		queued: __( 'Queued', 'color-vivo-social-publishing-for-postiz' ),
+		published: __( 'Published', 'color-vivo-social-publishing-for-postiz' ),
+		error: __( 'Error', 'color-vivo-social-publishing-for-postiz' ),
+		draft: __( 'Draft in Postiz', 'color-vivo-social-publishing-for-postiz' ),
+		cancelled: __( 'Cancelled', 'color-vivo-social-publishing-for-postiz' ),
+		pending: __( 'Pending', 'color-vivo-social-publishing-for-postiz' ),
 	};
 	return labels[ status ] || status;
 }

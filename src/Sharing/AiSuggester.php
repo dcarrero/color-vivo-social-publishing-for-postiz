@@ -73,7 +73,7 @@ final class AiSuggester {
 		}
 
 		if ( ! $this->available() ) {
-			return new WP_Error( 'socialrelaycvi_ai_unavailable', __( 'No AI provider is set up. Add one in Settings → Connectors.', 'social-relay-for-postiz' ), array( 'status' => 409 ) );
+			return new WP_Error( 'socialrelaycvi_ai_unavailable', __( 'No AI provider is set up. Add one in Settings → Connectors.', 'color-vivo-social-publishing-for-postiz' ), array( 'status' => 409 ) );
 		}
 
 		$result = wp_ai_client_prompt( $this->prompt( $post ) )

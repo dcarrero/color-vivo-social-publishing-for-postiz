@@ -40,7 +40,7 @@ final class DashboardWidget implements Module {
 			return;
 		}
 
-		wp_add_dashboard_widget( 'socialrelaycvi_dashboard', __( 'Social networks (Postiz)', 'social-relay-for-postiz' ), array( $this, 'render' ) );
+		wp_add_dashboard_widget( 'socialrelaycvi_dashboard', __( 'Social networks (Postiz)', 'color-vivo-social-publishing-for-postiz' ), array( $this, 'render' ) );
 	}
 
 	/**
@@ -55,9 +55,9 @@ final class DashboardWidget implements Module {
 		$name = static fn ( array $row ): string => (string) ( $names[ $row['integration_id'] ] ?? ProviderRules::network( (string) $row['identifier'] )['label'] );
 
 		$boxes = array(
-			array( (int) ( $counts['published'] ?? 0 ), __( 'Published (7 days)', 'social-relay-for-postiz' ), '#007a1f' ),
-			array( (int) ( $counts['queued'] ?? 0 ), __( 'Queued', 'social-relay-for-postiz' ), '#3858e9' ),
-			array( (int) ( $counts['error'] ?? 0 ), __( 'Errors', 'social-relay-for-postiz' ), '#cc1818' ),
+			array( (int) ( $counts['published'] ?? 0 ), __( 'Published (7 days)', 'color-vivo-social-publishing-for-postiz' ), '#007a1f' ),
+			array( (int) ( $counts['queued'] ?? 0 ), __( 'Queued', 'color-vivo-social-publishing-for-postiz' ), '#3858e9' ),
+			array( (int) ( $counts['error'] ?? 0 ), __( 'Errors', 'color-vivo-social-publishing-for-postiz' ), '#cc1818' ),
 		);
 		?>
 		<div style="display:flex;gap:8px;margin-bottom:12px">
@@ -70,7 +70,7 @@ final class DashboardWidget implements Module {
 		</div>
 
 		<?php if ( array() !== $errors ) : ?>
-			<p><strong><?php esc_html_e( 'Latest errors', 'social-relay-for-postiz' ); ?></strong></p>
+			<p><strong><?php esc_html_e( 'Latest errors', 'color-vivo-social-publishing-for-postiz' ); ?></strong></p>
 			<ul>
 				<?php foreach ( $errors as $row ) : ?>
 					<li style="color:#cc1818">
@@ -82,9 +82,9 @@ final class DashboardWidget implements Module {
 			</ul>
 		<?php endif; ?>
 
-		<p><strong><?php esc_html_e( 'Next', 'social-relay-for-postiz' ); ?></strong></p>
+		<p><strong><?php esc_html_e( 'Next', 'color-vivo-social-publishing-for-postiz' ); ?></strong></p>
 		<?php if ( array() === $upcoming ) : ?>
-			<p class="description"><?php esc_html_e( 'Nothing scheduled.', 'social-relay-for-postiz' ); ?></p>
+			<p class="description"><?php esc_html_e( 'Nothing scheduled.', 'color-vivo-social-publishing-for-postiz' ); ?></p>
 		<?php else : ?>
 			<ul>
 				<?php foreach ( $upcoming as $row ) : ?>
@@ -98,10 +98,10 @@ final class DashboardWidget implements Module {
 		<?php endif; ?>
 
 		<p>
-			<a href="<?php echo esc_url( admin_url( 'admin.php?page=social-relay-log' ) ); ?>"><?php esc_html_e( 'Log', 'social-relay-for-postiz' ); ?></a>
-			· <a href="<?php echo esc_url( admin_url( 'admin.php?page=' . SettingsPage::SLUG ) ); ?>"><?php esc_html_e( 'Settings', 'social-relay-for-postiz' ); ?></a>
+			<a href="<?php echo esc_url( admin_url( 'admin.php?page=social-relay-log' ) ); ?>"><?php esc_html_e( 'Log', 'color-vivo-social-publishing-for-postiz' ); ?></a>
+			· <a href="<?php echo esc_url( admin_url( 'admin.php?page=' . SettingsPage::SLUG ) ); ?>"><?php esc_html_e( 'Settings', 'color-vivo-social-publishing-for-postiz' ); ?></a>
 			<?php if ( '' !== $this->plugin->connection->instance_url() ) : ?>
-				· <a href="<?php echo esc_url( $this->plugin->connection->instance_url() ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Open Postiz', 'social-relay-for-postiz' ); ?></a>
+				· <a href="<?php echo esc_url( $this->plugin->connection->instance_url() ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Open Postiz', 'color-vivo-social-publishing-for-postiz' ); ?></a>
 			<?php endif; ?>
 		</p>
 		<?php
@@ -115,6 +115,6 @@ final class DashboardWidget implements Module {
 	private static function title( int $post_id ): string {
 		$title = get_the_title( $post_id );
 
-		return '' !== $title ? $title : __( '(no title)', 'social-relay-for-postiz' );
+		return '' !== $title ? $title : __( '(no title)', 'color-vivo-social-publishing-for-postiz' );
 	}
 }

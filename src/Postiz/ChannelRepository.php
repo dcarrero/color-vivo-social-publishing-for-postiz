@@ -76,7 +76,7 @@ final class ChannelRepository {
 
 		$client = ( $this->client_factory )();
 		if ( null === $client ) {
-			return new WP_Error( 'socialrelaycvi_not_configured', __( 'Postiz is not configured yet.', 'social-relay-for-postiz' ) );
+			return new WP_Error( 'socialrelaycvi_not_configured', __( 'Postiz is not configured yet.', 'color-vivo-social-publishing-for-postiz' ) );
 		}
 
 		$response = $client->integrations();

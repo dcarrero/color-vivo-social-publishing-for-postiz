@@ -36,11 +36,11 @@ final class ConnectionTester {
 		$key        = $connection->api_key();
 
 		if ( '' === $connection->instance_url() ) {
-			return new WP_Error( 'socialrelaycvi_no_url', __( 'Enter the URL of your Postiz instance.', 'social-relay-for-postiz' ) );
+			return new WP_Error( 'socialrelaycvi_no_url', __( 'Enter the URL of your Postiz instance.', 'color-vivo-social-publishing-for-postiz' ) );
 		}
 
 		if ( '' === $key ) {
-			return new WP_Error( 'socialrelaycvi_no_key', __( 'Enter your Postiz API key (Postiz → Settings → Developers → Public API).', 'social-relay-for-postiz' ) );
+			return new WP_Error( 'socialrelaycvi_no_key', __( 'Enter your Postiz API key (Postiz → Settings → Developers → Public API).', 'color-vivo-social-publishing-for-postiz' ) );
 		}
 
 		$last_error = null;
@@ -53,7 +53,7 @@ final class ConnectionTester {
 				$this->plugin->channels->flush();
 				$channels = $this->plugin->channels->all( true );
 
-				$this->plugin->logger->info( 'test', __( 'Connection to Postiz OK.', 'social-relay-for-postiz' ), 0, '', array( 'api_base' => $base ) );
+				$this->plugin->logger->info( 'test', __( 'Connection to Postiz OK.', 'color-vivo-social-publishing-for-postiz' ), 0, '', array( 'api_base' => $base ) );
 
 				return array(
 					'api_base' => $base,
@@ -70,7 +70,7 @@ final class ConnectionTester {
 					'socialrelaycvi_unreachable',
 					sprintf(
 						/* translators: 1: host name, 2: technical error. */
-						__( 'Could not reach %1$s. Check the URL, DNS and firewall. (%2$s)', 'social-relay-for-postiz' ),
+						__( 'Could not reach %1$s. Check the URL, DNS and firewall. (%2$s)', 'color-vivo-social-publishing-for-postiz' ),
 						(string) wp_parse_url( $base, PHP_URL_HOST ),
 						$result->get_error_message()
 					),
@@ -85,7 +85,7 @@ final class ConnectionTester {
 			}
 		}
 
-		$error = $last_error ?? new WP_Error( 'socialrelaycvi_no_url', __( 'The Postiz URL is not valid.', 'social-relay-for-postiz' ) );
+		$error = $last_error ?? new WP_Error( 'socialrelaycvi_no_url', __( 'The Postiz URL is not valid.', 'color-vivo-social-publishing-for-postiz' ) );
 		$this->plugin->logger->error( 'test', $error->get_error_message() );
 
 		return $error;

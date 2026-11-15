@@ -1,8 +1,8 @@
 {
-	"name": "social-relay-for-postiz",
+	"name": "color-vivo-social-publishing-for-postiz",
 	"version": "1.0.0",
 	"private": true,
-	"description": "Build tooling for the Social Relay for Postiz editor panel.",
+	"description": "Build tooling for the Color Vivo Social Publishing for Postiz editor panel.",
 	"license": "GPL-2.0-or-later",
 	"scripts": {
 		"build": "wp-scripts build editor-panel=./assets/src/editor-panel/index.js settings=./assets/src/settings/index.js log=./assets/src/log/index.js --output-path=build",
