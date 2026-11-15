@@ -39,7 +39,7 @@ export default function PrePublish() {
 
 	return (
 		<PluginPrePublishPanel
-			title={ __( 'Social networks', 'social-relay-for-postiz' ) }
+			title={ __( 'Social networks', 'color-vivo-social-publishing-for-postiz' ) }
 			initialOpen
 			icon={ ICON }
 		>
@@ -47,7 +47,7 @@ export default function PrePublish() {
 				<p>
 					{ __(
 						'This post will not be shared: its categories or tags do not match the profile conditions.',
-						'social-relay-for-postiz'
+						'color-vivo-social-publishing-for-postiz'
 					) }
 				</p>
 			) }
@@ -55,7 +55,7 @@ export default function PrePublish() {
 				<p>
 					{ __(
 						'This post will not be shared.',
-						'social-relay-for-postiz'
+						'color-vivo-social-publishing-for-postiz'
 					) }
 				</p>
 			) }
@@ -68,7 +68,7 @@ export default function PrePublish() {
 								'Will be sent to Postiz for %d channel:',
 								'Will be sent to Postiz for %d channels:',
 								names.length,
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							),
 							names.length
 						) }

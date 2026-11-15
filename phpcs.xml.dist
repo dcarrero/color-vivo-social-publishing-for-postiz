@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="Social Relay for Postiz">
-	<description>Coding standards for Social Relay for Postiz.</description>
+<ruleset name="Color Vivo Social Publishing for Postiz">
+	<description>Coding standards for Color Vivo Social Publishing for Postiz.</description>
 
 	<file>.</file>
 	<exclude-pattern>/vendor/*</exclude-pattern>
@@ -27,7 +27,7 @@
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
-				<element value="social-relay-for-postiz"/>
+				<element value="color-vivo-social-publishing-for-postiz"/>
 			</property>
 		</properties>
 	</rule>

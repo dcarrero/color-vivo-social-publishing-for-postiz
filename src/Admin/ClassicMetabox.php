@@ -55,7 +55,7 @@ final class ClassicMetabox implements Module {
 			return;
 		}
 
-		add_meta_box( 'socialrelaycvi', __( 'Social networks (Postiz)', 'social-relay-for-postiz' ), array( $this, 'render' ), $post_type, 'side' );
+		add_meta_box( 'socialrelaycvi', __( 'Social networks (Postiz)', 'color-vivo-social-publishing-for-postiz' ), array( $this, 'render' ), $post_type, 'side' );
 	}
 
 	/**
@@ -79,9 +79,9 @@ final class ClassicMetabox implements Module {
 		?>
 		<p>
 			<input type="hidden" name="socialrelaycvi[enabled]" value="0">
-			<label><input type="checkbox" name="socialrelaycvi[enabled]" value="1" <?php checked( $enabled ); ?>> <?php esc_html_e( 'Share when publishing', 'social-relay-for-postiz' ); ?></label>
+			<label><input type="checkbox" name="socialrelaycvi[enabled]" value="1" <?php checked( $enabled ); ?>> <?php esc_html_e( 'Share when publishing', 'color-vivo-social-publishing-for-postiz' ); ?></label>
 		</p>
-		<p><strong><?php esc_html_e( 'Channels', 'social-relay-for-postiz' ); ?></strong><br>
+		<p><strong><?php esc_html_e( 'Channels', 'color-vivo-social-publishing-for-postiz' ); ?></strong><br>
 			<?php foreach ( $channels as $channel ) : ?>
 				<label style="display:block;margin:2px 0">
 					<input type="checkbox" name="socialrelaycvi[channels][]" value="<?php echo esc_attr( $channel['id'] ); ?>" <?php checked( in_array( $channel['id'], $selected, true ) ); ?> <?php disabled( $channel['disabled'] ); ?>>
@@ -93,38 +93,38 @@ final class ClassicMetabox implements Module {
 		$mode       = (string) get_post_meta( $post->ID, PostMeta::MODE, true );
 		$publish_at = (string) get_post_meta( $post->ID, PostMeta::PUBLISH_AT, true );
 		$modes      = array(
-			''         => __( 'As in the profile', 'social-relay-for-postiz' ),
-			'now'      => __( 'Right away', 'social-relay-for-postiz' ),
-			'schedule' => __( 'Schedule', 'social-relay-for-postiz' ),
-			'slot'     => __( 'Next free time in Postiz', 'social-relay-for-postiz' ),
-			'draft'    => __( 'Draft in Postiz', 'social-relay-for-postiz' ),
+			''         => __( 'As in the profile', 'color-vivo-social-publishing-for-postiz' ),
+			'now'      => __( 'Right away', 'color-vivo-social-publishing-for-postiz' ),
+			'schedule' => __( 'Schedule', 'color-vivo-social-publishing-for-postiz' ),
+			'slot'     => __( 'Next free time in Postiz', 'color-vivo-social-publishing-for-postiz' ),
+			'draft'    => __( 'Draft in Postiz', 'color-vivo-social-publishing-for-postiz' ),
 		);
 		?>
 		<p>
-			<label for="socialrelaycvi-mode"><strong><?php esc_html_e( 'When', 'social-relay-for-postiz' ); ?></strong></label><br>
+			<label for="socialrelaycvi-mode"><strong><?php esc_html_e( 'When', 'color-vivo-social-publishing-for-postiz' ); ?></strong></label><br>
 			<select id="socialrelaycvi-mode" name="socialrelaycvi[mode]" class="widefat">
 				<?php foreach ( $modes as $value => $label ) : ?>
 					<option value="<?php echo esc_attr( $value ); ?>" <?php selected( $mode, $value ); ?>><?php echo esc_html( $label ); ?></option>
 				<?php endforeach; ?>
 			</select>
-			<label for="socialrelaycvi-publish-at" class="screen-reader-text"><?php esc_html_e( 'Date and time', 'social-relay-for-postiz' ); ?></label>
+			<label for="socialrelaycvi-publish-at" class="screen-reader-text"><?php esc_html_e( 'Date and time', 'color-vivo-social-publishing-for-postiz' ); ?></label>
 			<input type="datetime-local" id="socialrelaycvi-publish-at" name="socialrelaycvi[publish_at]" class="widefat" value="<?php echo esc_attr( substr( $publish_at, 0, 16 ) ); ?>" style="margin-top:4px">
-			<span class="description"><?php esc_html_e( 'The date is used with "Schedule". Empty: the profile delay after publishing.', 'social-relay-for-postiz' ); ?></span>
+			<span class="description"><?php esc_html_e( 'The date is used with "Schedule". Empty: the profile delay after publishing.', 'color-vivo-social-publishing-for-postiz' ); ?></span>
 		</p>
 		<?php
 		$images  = PostMeta::sanitize_images( get_post_meta( $post->ID, PostMeta::IMAGES, true ) );
 		$choice  = array() === $images ? '' : ( array( PostMeta::NO_IMAGES ) === $images ? 'none' : 'keep' );
 		$choices = array(
-			''     => __( 'As in the profile', 'social-relay-for-postiz' ),
-			'none' => __( 'No images', 'social-relay-for-postiz' ),
+			''     => __( 'As in the profile', 'color-vivo-social-publishing-for-postiz' ),
+			'none' => __( 'No images', 'color-vivo-social-publishing-for-postiz' ),
 		);
 		if ( 'keep' === $choice ) {
 			/* translators: %d: number of images. */
-			$choices['keep'] = sprintf( _n( '%d image chosen in the block editor', '%d images chosen in the block editor', count( $images ), 'social-relay-for-postiz' ), count( $images ) );
+			$choices['keep'] = sprintf( _n( '%d image chosen in the block editor', '%d images chosen in the block editor', count( $images ), 'color-vivo-social-publishing-for-postiz' ), count( $images ) );
 		}
 		?>
 		<p>
-			<label for="socialrelaycvi-images"><strong><?php esc_html_e( 'Images', 'social-relay-for-postiz' ); ?></strong></label><br>
+			<label for="socialrelaycvi-images"><strong><?php esc_html_e( 'Images', 'color-vivo-social-publishing-for-postiz' ); ?></strong></label><br>
 			<select id="socialrelaycvi-images" name="socialrelaycvi[images]" class="widefat">
 				<?php foreach ( $choices as $value => $label ) : ?>
 					<option value="<?php echo esc_attr( $value ); ?>" <?php selected( $choice, $value ); ?>><?php echo esc_html( $label ); ?></option>
@@ -132,11 +132,11 @@ final class ClassicMetabox implements Module {
 			</select>
 		</p>
 		<p>
-			<label for="socialrelaycvi-message"><strong><?php esc_html_e( 'Text for all networks', 'social-relay-for-postiz' ); ?></strong></label>
-			<textarea id="socialrelaycvi-message" name="socialrelaycvi[message]" rows="4" class="widefat" placeholder="<?php esc_attr_e( 'Empty = profile template', 'social-relay-for-postiz' ); ?>"><?php echo esc_textarea( (string) get_post_meta( $post->ID, PostMeta::MESSAGE, true ) ); ?></textarea>
+			<label for="socialrelaycvi-message"><strong><?php esc_html_e( 'Text for all networks', 'color-vivo-social-publishing-for-postiz' ); ?></strong></label>
+			<textarea id="socialrelaycvi-message" name="socialrelaycvi[message]" rows="4" class="widefat" placeholder="<?php esc_attr_e( 'Empty = profile template', 'color-vivo-social-publishing-for-postiz' ); ?>"><?php echo esc_textarea( (string) get_post_meta( $post->ID, PostMeta::MESSAGE, true ) ); ?></textarea>
 		</p>
 		<?php if ( 'publish' === $post->post_status && $profile['share_on_update'] ) : ?>
-			<p><label><input type="checkbox" name="socialrelaycvi[reshare]" value="1"> <?php esc_html_e( 'Share again on the next update', 'social-relay-for-postiz' ); ?></label></p>
+			<p><label><input type="checkbox" name="socialrelaycvi[reshare]" value="1"> <?php esc_html_e( 'Share again on the next update', 'color-vivo-social-publishing-for-postiz' ); ?></label></p>
 		<?php endif; ?>
 		<?php
 		$this->render_status( $post->ID, $channels );
@@ -213,7 +213,7 @@ final class ClassicMetabox implements Module {
 		$names = array_column( $channels, 'name', 'id' );
 		$seen  = array();
 		?>
-		<p><strong><?php esc_html_e( 'Status', 'social-relay-for-postiz' ); ?></strong></p>
+		<p><strong><?php esc_html_e( 'Status', 'color-vivo-social-publishing-for-postiz' ); ?></strong></p>
 		<ul style="margin-top:0">
 			<?php foreach ( $rows as $row ) : ?>
 				<?php
@@ -226,7 +226,7 @@ final class ClassicMetabox implements Module {
 					<?php echo esc_html( (string) ( $names[ $row['integration_id'] ] ?? ProviderRules::network( (string) $row['identifier'] )['label'] ) ); ?>:
 					<strong><?php echo esc_html( StatusLabels::label( (string) $row['status'] ) ); ?></strong>
 					<?php if ( ! empty( $row['release_url'] ) ) : ?>
-						· <a href="<?php echo esc_url( (string) $row['release_url'] ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'View post', 'social-relay-for-postiz' ); ?></a>
+						· <a href="<?php echo esc_url( (string) $row['release_url'] ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'View post', 'color-vivo-social-publishing-for-postiz' ); ?></a>
 					<?php endif; ?>
 					<?php if ( ! empty( $row['error'] ) ) : ?>
 						<br><span style="color:#cc1818"><?php echo esc_html( (string) $row['error'] ); ?></span>

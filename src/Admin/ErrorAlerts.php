@@ -52,6 +52,25 @@ final class ErrorAlerts implements Module {
 	}
 
 	/**
+	 * The notice only shows where it is relevant: the dashboard, the plugin's own
+	 * settings screen and the post lists of the post types that are shared. Never in
+	 * the block editor (it has its own status panel) or the log (it lists the errors).
+	 *
+	 * @param \WP_Screen $screen Current screen.
+	 */
+	private function is_alert_screen( \WP_Screen $screen ): bool {
+		if ( $screen->is_block_editor() ) {
+			return false;
+		}
+		if ( 'dashboard' === $screen->id || 'toplevel_page_' . SettingsPage::SLUG === $screen->id ) {
+			return true;
+		}
+
+		return 'edit' === $screen->base && '' !== $screen->post_type
+			&& (bool) $this->plugin->profiles->for_post_type( $screen->post_type )['enabled'];
+	}
+
+	/**
 	 * Admin notice with the open failures since the user last hid it.
 	 */
 	public function notice(): void {
@@ -60,8 +79,7 @@ final class ErrorAlerts implements Module {
 		}
 
 		$screen = get_current_screen();
-		// The block editor has its own status panel; the log already lists errors.
-		if ( null === $screen || $screen->is_block_editor() || str_contains( (string) $screen->id, 'social-relay-log' ) ) {
+		if ( null === $screen || ! $this->is_alert_screen( $screen ) ) {
 			return;
 		}
 
@@ -83,7 +101,7 @@ final class ErrorAlerts implements Module {
 		?>
 		<div class="notice notice-error">
 			<p>
-				<strong><?php esc_html_e( 'Social Relay: some shares failed in Postiz.', 'social-relay-for-postiz' ); ?></strong>
+				<strong><?php esc_html_e( 'Social Publishing: some shares failed in Postiz.', 'color-vivo-social-publishing-for-postiz' ); ?></strong>
 			</p>
 			<ul style="margin:0 0 8px 1.2em;list-style:disc">
 				<?php foreach ( array_slice( $posts, 0, 3, true ) as $post_id => $rows ) : ?>
@@ -93,15 +111,15 @@ final class ErrorAlerts implements Module {
 					<li>
 						<?php
 						/* translators: %d: number of posts. */
-						echo esc_html( sprintf( _n( 'And %d more post.', 'And %d more posts.', count( $posts ) - 3, 'social-relay-for-postiz' ), count( $posts ) - 3 ) );
+						echo esc_html( sprintf( _n( 'And %d more post.', 'And %d more posts.', count( $posts ) - 3, 'color-vivo-social-publishing-for-postiz' ), count( $posts ) - 3 ) );
 						?>
 					</li>
 				<?php endif; ?>
 			</ul>
 			<p>
-				<a class="button button-primary" href="<?php echo esc_url( self::errors_url( (int) array_key_first( $posts ) ) ); ?>"><?php esc_html_e( 'Posts with errors', 'social-relay-for-postiz' ); ?></a>
-				<a class="button" href="<?php echo esc_url( admin_url( 'admin.php?page=social-relay-log&level=error' ) ); ?>"><?php esc_html_e( 'Log', 'social-relay-for-postiz' ); ?></a>
-				<a href="<?php echo esc_url( $hide_url ); ?>" style="margin-left:8px"><?php esc_html_e( 'Hide until new errors', 'social-relay-for-postiz' ); ?></a>
+				<a class="button button-primary" href="<?php echo esc_url( self::errors_url( (int) array_key_first( $posts ) ) ); ?>"><?php esc_html_e( 'Posts with errors', 'color-vivo-social-publishing-for-postiz' ); ?></a>
+				<a class="button" href="<?php echo esc_url( admin_url( 'admin.php?page=social-relay-log&level=error' ) ); ?>"><?php esc_html_e( 'Log', 'color-vivo-social-publishing-for-postiz' ); ?></a>
+				<a href="<?php echo esc_url( $hide_url ); ?>" style="margin-left:8px"><?php esc_html_e( 'Hide until new errors', 'color-vivo-social-publishing-for-postiz' ); ?></a>
 			</p>
 		</div>
 		<?php
@@ -114,7 +132,7 @@ final class ErrorAlerts implements Module {
 		check_admin_referer( self::ACTION_HIDE );
 
 		if ( ! current_user_can( SettingsPage::CAPABILITY ) ) {
-			wp_die( esc_html__( 'Sorry, you are not allowed to do that.', 'social-relay-for-postiz' ), 403 );
+			wp_die( esc_html__( 'Sorry, you are not allowed to do that.', 'color-vivo-social-publishing-for-postiz' ), 403 );
 		}
 
 		update_user_meta( get_current_user_id(), self::USER_SEEN, time() );
@@ -155,15 +173,15 @@ final class ErrorAlerts implements Module {
 		$sent = wp_mail(
 			$to,
 			/* translators: %s: site name. */
-			sprintf( __( '[%s] Some social media shares failed', 'social-relay-for-postiz' ), wp_specialchars_decode( (string) get_option( 'blogname' ), ENT_QUOTES ) ),
+			sprintf( __( '[%s] Some social media shares failed', 'color-vivo-social-publishing-for-postiz' ), wp_specialchars_decode( (string) get_option( 'blogname' ), ENT_QUOTES ) ),
 			implode(
 				"\n\n",
 				array(
-					__( 'These shares to Postiz failed and were not retried with success:', 'social-relay-for-postiz' ),
+					__( 'These shares to Postiz failed and were not retried with success:', 'color-vivo-social-publishing-for-postiz' ),
 					implode( "\n", $lines ),
 					/* translators: %s: URL of the posts list filtered by errors. */
-					sprintf( __( 'Posts with errors: %s', 'social-relay-for-postiz' ), self::errors_url( (int) $errors[0]['post_id'] ) ),
-					__( 'You get this email because failure emails are on in Social Relay → Settings → Advanced.', 'social-relay-for-postiz' ),
+					sprintf( __( 'Posts with errors: %s', 'color-vivo-social-publishing-for-postiz' ), self::errors_url( (int) $errors[0]['post_id'] ) ),
+					__( 'You get this email because failure emails are on in Social Publishing → Settings → Advanced.', 'color-vivo-social-publishing-for-postiz' ),
 				)
 			)
 		);
@@ -199,11 +217,11 @@ final class ErrorAlerts implements Module {
 		$errors = array();
 		foreach ( $rows as $row ) {
 			$where[]  = $this->channel_name( $row );
-			$errors[] = '' !== (string) $row['error'] ? (string) $row['error'] : __( 'Error', 'social-relay-for-postiz' );
+			$errors[] = '' !== (string) $row['error'] ? (string) $row['error'] : __( 'Error', 'color-vivo-social-publishing-for-postiz' );
 		}
 
 		$title = get_the_title( $post_id );
-		$title = '' !== $title ? $title : __( '(no title)', 'social-relay-for-postiz' );
+		$title = '' !== $title ? $title : __( '(no title)', 'color-vivo-social-publishing-for-postiz' );
 		$link  = get_edit_post_link( $post_id );
 
 		return sprintf(
@@ -236,8 +254,8 @@ final class ErrorAlerts implements Module {
 		$post_id = (int) $row['post_id'];
 		$where   = $this->channel_name( $row );
 		$title   = get_the_title( $post_id );
-		$title   = '' !== $title ? $title : __( '(no title)', 'social-relay-for-postiz' );
-		$error   = '' !== (string) $row['error'] ? (string) $row['error'] : __( 'Error', 'social-relay-for-postiz' );
+		$title   = '' !== $title ? $title : __( '(no title)', 'color-vivo-social-publishing-for-postiz' );
+		$error   = '' !== (string) $row['error'] ? (string) $row['error'] : __( 'Error', 'color-vivo-social-publishing-for-postiz' );
 
 		if ( ! $html ) {
 			return sprintf( '%1$s — %2$s: %3$s', wp_strip_all_tags( $title ), $where, $error );

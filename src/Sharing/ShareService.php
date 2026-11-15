@@ -124,13 +124,13 @@ final class ShareService implements Module {
 		$log = $this->plugin->logger;
 
 		if ( ! $this->matches( $post, $profile ) ) {
-			$log->info( 'share', __( 'The post does not match the profile conditions; not shared.', 'social-relay-for-postiz' ), $post_id );
+			$log->info( 'share', __( 'The post does not match the profile conditions; not shared.', 'color-vivo-social-publishing-for-postiz' ), $post_id );
 			return;
 		}
 
 		$client = $this->plugin->gateway();
 		if ( null === $client ) {
-			$log->error( 'share', __( 'Postiz is not configured; nothing was sent.', 'social-relay-for-postiz' ), $post_id );
+			$log->error( 'share', __( 'Postiz is not configured; nothing was sent.', 'color-vivo-social-publishing-for-postiz' ), $post_id );
 			return;
 		}
 
@@ -166,7 +166,7 @@ final class ShareService implements Module {
 		$hash      = sha1( (string) wp_json_encode( array( $items, $profile['mode'], $image_ids ) ) );
 
 		if ( ! $reshare && $this->plugin->shares->was_sent( $post_id, $hash ) ) {
-			$log->info( 'share', __( 'Same content was already sent; skipped to avoid a duplicate.', 'social-relay-for-postiz' ), $post_id );
+			$log->info( 'share', __( 'Same content was already sent; skipped to avoid a duplicate.', 'color-vivo-social-publishing-for-postiz' ), $post_id );
 			return;
 		}
 
@@ -176,7 +176,7 @@ final class ShareService implements Module {
 		if ( RequestCounter::count() + $needed > RequestCounter::LIMIT ) {
 			$this->plugin->queue->enqueue_share( $post_id, 10 * MINUTE_IN_SECONDS, $attempt, $this->source );
 			$this->retry_queued = true;
-			$log->info( 'share', __( 'The hourly limit of the Postiz API is almost used up; sending in 10 minutes.', 'social-relay-for-postiz' ), $post_id );
+			$log->info( 'share', __( 'The hourly limit of the Postiz API is almost used up; sending in 10 minutes.', 'color-vivo-social-publishing-for-postiz' ), $post_id );
 			return;
 		}
 
@@ -190,7 +190,7 @@ final class ShareService implements Module {
 		$sendable = array();
 		foreach ( $items as $item ) {
 			if ( array() === $images && ProviderRules::requires_media( $item['identifier'] ) ) {
-				$log->error( 'share', __( 'This network needs an image and the post has none; skipped.', 'social-relay-for-postiz' ), $post_id, $item['integration_id'] );
+				$log->error( 'share', __( 'This network needs an image and the post has none; skipped.', 'color-vivo-social-publishing-for-postiz' ), $post_id, $item['integration_id'] );
 				continue;
 			}
 			$item['images'] = array_slice( $images, 0, ProviderRules::max_images( $item['identifier'] ) );
@@ -343,24 +343,24 @@ final class ShareService implements Module {
 	 */
 	public function why_not_shared( WP_Post $post ): ?string {
 		if ( ! $this->plugin->connection->is_configured() ) {
-			return __( 'Postiz is not configured yet.', 'social-relay-for-postiz' );
+			return __( 'Postiz is not configured yet.', 'color-vivo-social-publishing-for-postiz' );
 		}
 
 		if ( ! $this->plugin->profiles->for_post_type( $post->post_type )['enabled'] ) {
 			/* translators: %s: post type name. */
-			return sprintf( __( 'Sharing is turned off in the publishing profile for "%s".', 'social-relay-for-postiz' ), $post->post_type );
+			return sprintf( __( 'Sharing is turned off in the publishing profile for "%s".', 'color-vivo-social-publishing-for-postiz' ), $post->post_type );
 		}
 
 		if ( ! get_post_meta( $post->ID, PostMeta::ENABLED, true ) ) {
-			return __( 'Sharing is turned off for this post.', 'social-relay-for-postiz' );
+			return __( 'Sharing is turned off for this post.', 'color-vivo-social-publishing-for-postiz' );
 		}
 
 		if ( 'publish' !== $post->post_status ) {
-			return __( 'The post is not published yet.', 'social-relay-for-postiz' );
+			return __( 'The post is not published yet.', 'color-vivo-social-publishing-for-postiz' );
 		}
 
 		if ( ! self::may_share_protected( $post ) ) {
-			return __( 'The post is password protected; its text is not shared.', 'social-relay-for-postiz' );
+			return __( 'The post is password protected; its text is not shared.', 'color-vivo-social-publishing-for-postiz' );
 		}
 
 		return null;
@@ -449,7 +449,7 @@ final class ShareService implements Module {
 				$skipped[] = array(
 					'integration_id' => $channel_id,
 					'code'           => 'missing',
-					'reason'         => __( 'Channel no longer exists in Postiz; skipped.', 'social-relay-for-postiz' ),
+					'reason'         => __( 'Channel no longer exists in Postiz; skipped.', 'color-vivo-social-publishing-for-postiz' ),
 				);
 				continue;
 			}
@@ -458,7 +458,7 @@ final class ShareService implements Module {
 				$skipped[] = array(
 					'integration_id' => $channel_id,
 					'code'           => 'disabled',
-					'reason'         => __( 'Channel is disabled in Postiz; skipped.', 'social-relay-for-postiz' ),
+					'reason'         => __( 'Channel is disabled in Postiz; skipped.', 'color-vivo-social-publishing-for-postiz' ),
 				);
 				continue;
 			}
@@ -476,7 +476,7 @@ final class ShareService implements Module {
 					'integration_id' => $channel_id,
 					'code'           => 'settings',
 					/* translators: %s: list of missing settings. */
-					'reason'         => sprintf( __( 'Missing network settings (%s); skipped.', 'social-relay-for-postiz' ), implode( ', ', $missing ) ),
+					'reason'         => sprintf( __( 'Missing network settings (%s); skipped.', 'color-vivo-social-publishing-for-postiz' ), implode( ', ', $missing ) ),
 				);
 				continue;
 			}
@@ -576,7 +576,7 @@ final class ShareService implements Module {
 			}
 
 			$this->plugin->shares->set_batch_status( $batch, 'cancelled' );
-			$this->plugin->logger->info( 'cancel', __( 'Pending posts cancelled in Postiz.', 'social-relay-for-postiz' ), $post_id, '', array( 'batch' => $batch ) );
+			$this->plugin->logger->info( 'cancel', __( 'Pending posts cancelled in Postiz.', 'color-vivo-social-publishing-for-postiz' ), $post_id, '', array( 'batch' => $batch ) );
 		}
 
 		// A retraction must not fail open: try again later when Postiz failed for a passing reason.
@@ -624,7 +624,7 @@ final class ShareService implements Module {
 
 		// Image uploads take time: an unpublish meanwhile may have run the cancel job before any row existed.
 		if ( ! self::still_published( $post->ID ) ) {
-			$log->info( 'share', __( 'The post is no longer published; nothing was sent.', 'social-relay-for-postiz' ), $post->ID );
+			$log->info( 'share', __( 'The post is no longer published; nothing was sent.', 'color-vivo-social-publishing-for-postiz' ), $post->ID );
 			return;
 		}
 
@@ -657,7 +657,7 @@ final class ShareService implements Module {
 					'type'           => $type,
 					// Without the Postiz id the status can never be followed: say so instead of "queued" forever.
 					'status'         => ! isset( $postiz_ids[ $item['integration_id'] ] ) ? 'error' : ( PayloadBuilder::TYPE_DRAFT === $type ? 'draft' : 'queued' ),
-					'error'          => isset( $postiz_ids[ $item['integration_id'] ] ) ? '' : __( 'Postiz accepted the request but did not return the post; check it in Postiz.', 'social-relay-for-postiz' ),
+					'error'          => isset( $postiz_ids[ $item['integration_id'] ] ) ? '' : __( 'Postiz accepted the request but did not return the post; check it in Postiz.', 'color-vivo-social-publishing-for-postiz' ),
 					'publish_at'     => gmdate( 'Y-m-d H:i:s', $when ),
 					'content_hash'   => $hash,
 					'source'         => $this->source,
@@ -674,12 +674,12 @@ final class ShareService implements Module {
 			'share',
 			sprintf(
 				/* translators: 1: number of channels, 2: how Postiz handles it, e.g. "to publish now". */
-				_n( 'Sent to Postiz: %1$d channel, %2$s.', 'Sent to Postiz: %1$d channels, %2$s.', count( $items ), 'social-relay-for-postiz' ),
+				_n( 'Sent to Postiz: %1$d channel, %2$s.', 'Sent to Postiz: %1$d channels, %2$s.', count( $items ), 'color-vivo-social-publishing-for-postiz' ),
 				count( $items ),
 				match ( $type ) {
-					PayloadBuilder::TYPE_SCHEDULE => __( 'scheduled', 'social-relay-for-postiz' ),
-					PayloadBuilder::TYPE_DRAFT    => __( 'as a draft', 'social-relay-for-postiz' ),
-					default                       => __( 'to publish now', 'social-relay-for-postiz' ),
+					PayloadBuilder::TYPE_SCHEDULE => __( 'scheduled', 'color-vivo-social-publishing-for-postiz' ),
+					PayloadBuilder::TYPE_DRAFT    => __( 'as a draft', 'color-vivo-social-publishing-for-postiz' ),
+					default                       => __( 'to publish now', 'color-vivo-social-publishing-for-postiz' ),
 				}
 			),
 			$post->ID,
@@ -743,7 +743,7 @@ final class ShareService implements Module {
 			$this->plugin->logger->error(
 				'share',
 				/* translators: 1: error message, 2: attempt number, 3: max attempts. */
-				sprintf( __( '%1$s Retrying (%2$d of %3$d).', 'social-relay-for-postiz' ), $error->get_error_message(), $attempt + 1, self::MAX_ATTEMPTS ),
+				sprintf( __( '%1$s Retrying (%2$d of %3$d).', 'color-vivo-social-publishing-for-postiz' ), $error->get_error_message(), $attempt + 1, self::MAX_ATTEMPTS ),
 				$post_id
 			);
 			return;
@@ -1027,11 +1027,11 @@ final class ShareService implements Module {
 				return $upload;
 			}
 			if ( is_wp_error( $upload ) || empty( $upload['id'] ) || empty( $upload['path'] ) ) {
-				$message = is_wp_error( $upload ) ? $upload->get_error_message() : __( 'Unexpected upload response.', 'social-relay-for-postiz' );
+				$message = is_wp_error( $upload ) ? $upload->get_error_message() : __( 'Unexpected upload response.', 'color-vivo-social-publishing-for-postiz' );
 				$this->plugin->logger->error(
 					'upload',
 					/* translators: %s: error message. */
-					sprintf( __( 'Postiz could not fetch an image (%s). Sent without it.', 'social-relay-for-postiz' ), $message ),
+					sprintf( __( 'Postiz could not fetch an image (%s). Sent without it.', 'color-vivo-social-publishing-for-postiz' ), $message ),
 					$post->ID,
 					'',
 					array( 'url' => $url )

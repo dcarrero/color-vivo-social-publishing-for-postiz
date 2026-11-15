@@ -56,7 +56,7 @@ function reportLines( report, postTypes ) {
 	const lines = [
 		sprintf(
 			/* translators: %s: list of post type names. */
-			__( 'Imported: %s.', 'social-relay-for-postiz' ),
+			__( 'Imported: %s.', 'color-vivo-social-publishing-for-postiz' ),
 			report.imported.map( label ).join( ', ' )
 		),
 	];
@@ -67,7 +67,7 @@ function reportLines( report, postTypes ) {
 				/* translators: %s: list of post type names. */
 				__(
 					'Not on this site, skipped: %s.',
-					'social-relay-for-postiz'
+					'color-vivo-social-publishing-for-postiz'
 				),
 				report.skipped_types.join( ', ' )
 			)
@@ -79,7 +79,7 @@ function reportLines( report, postTypes ) {
 				/* translators: %s: list of category or tag names. */
 				__(
 					'Categories or tags this site does not have, left out of the conditions: %s.',
-					'social-relay-for-postiz'
+					'color-vivo-social-publishing-for-postiz'
 				),
 				report.missing_terms.join( ', ' )
 			)
@@ -93,7 +93,7 @@ function reportLines( report, postTypes ) {
 					'%d channel is not in your Postiz instance. Review the profiles to remove it.',
 					'%d channels are not in your Postiz instance. Review the profiles to remove them.',
 					report.unknown_channels,
-					'social-relay-for-postiz'
+					'color-vivo-social-publishing-for-postiz'
 				),
 				report.unknown_channels
 			)
@@ -149,8 +149,8 @@ export default function ProfileTransfer( { settings, setSettings } ) {
 					status: 'error',
 					lines: [
 						__(
-							'This file is not an export of Social Relay profiles.',
-							'social-relay-for-postiz'
+							'This file is not an export of Social Publishing profiles.',
+							'color-vivo-social-publishing-for-postiz'
 						),
 					],
 				} )
@@ -193,14 +193,14 @@ export default function ProfileTransfer( { settings, setSettings } ) {
 		<Card>
 			<CardHeader>
 				<h3>
-					{ __( 'Publishing profiles', 'social-relay-for-postiz' ) }
+					{ __( 'Publishing profiles', 'color-vivo-social-publishing-for-postiz' ) }
 				</h3>
 			</CardHeader>
 			<CardBody>
 				<p className="description">
 					{ __(
 						'Copy your profiles to another site: channels, messages, timing and conditions. The connection to Postiz is not included.',
-						'social-relay-for-postiz'
+						'color-vivo-social-publishing-for-postiz'
 					) }
 				</p>
 				{ notice && (
@@ -220,7 +220,7 @@ export default function ProfileTransfer( { settings, setSettings } ) {
 						isBusy={ busy && ! pending }
 						disabled={ busy }
 					>
-						{ __( 'Export profiles', 'social-relay-for-postiz' ) }
+						{ __( 'Export profiles', 'color-vivo-social-publishing-for-postiz' ) }
 					</Button>
 					<FormFileUpload
 						accept="application/json,.json"
@@ -233,7 +233,7 @@ export default function ProfileTransfer( { settings, setSettings } ) {
 							>
 								{ __(
 									'Import profiles…',
-									'social-relay-for-postiz'
+									'color-vivo-social-publishing-for-postiz'
 								) }
 							</Button>
 						) }
@@ -244,7 +244,7 @@ export default function ProfileTransfer( { settings, setSettings } ) {
 				<Modal
 					title={ __(
 						'Import profiles?',
-						'social-relay-for-postiz'
+						'color-vivo-social-publishing-for-postiz'
 					) }
 					onRequestClose={ () => ! busy && setPending( null ) }
 					size="small"
@@ -254,7 +254,7 @@ export default function ProfileTransfer( { settings, setSettings } ) {
 							/* translators: 1: file name, 2: list of post type names. */
 							__(
 								'“%1$s” replaces the profiles of: %2$s.',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							),
 							pending.name,
 							pending.types.map( label ).join( ', ' )
@@ -263,7 +263,7 @@ export default function ProfileTransfer( { settings, setSettings } ) {
 					<p>
 						{ __(
 							'Other post types keep their profile. Posts already shared are not touched.',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						) }
 					</p>
 					<Flex justify="flex-end" gap={ 2 }>
@@ -272,7 +272,7 @@ export default function ProfileTransfer( { settings, setSettings } ) {
 							onClick={ () => setPending( null ) }
 							disabled={ busy }
 						>
-							{ __( 'Cancel', 'social-relay-for-postiz' ) }
+							{ __( 'Cancel', 'color-vivo-social-publishing-for-postiz' ) }
 						</Button>
 						<Button
 							variant="primary"
@@ -280,7 +280,7 @@ export default function ProfileTransfer( { settings, setSettings } ) {
 							isBusy={ busy }
 							disabled={ busy }
 						>
-							{ __( 'Import', 'social-relay-for-postiz' ) }
+							{ __( 'Import', 'color-vivo-social-publishing-for-postiz' ) }
 						</Button>
 					</Flex>
 				</Modal>

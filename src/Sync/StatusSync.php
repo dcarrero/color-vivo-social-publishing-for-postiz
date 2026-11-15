@@ -136,7 +136,7 @@ final class StatusSync implements Module {
 						(int) $row['id'],
 						array(
 							'status' => 'cancelled',
-							'error'  => __( 'No longer in Postiz.', 'social-relay-for-postiz' ),
+							'error'  => __( 'No longer in Postiz.', 'color-vivo-social-publishing-for-postiz' ),
 						)
 					);
 				}
@@ -175,9 +175,9 @@ final class StatusSync implements Module {
 		$chan   = (string) $row['integration_id'];
 
 		if ( 'published' === $status ) {
-			$this->plugin->logger->info( 'sync', __( 'Published on the network.', 'social-relay-for-postiz' ), $post, $chan, array( 'url' => $changes['release_url'] ?? '' ) );
+			$this->plugin->logger->info( 'sync', __( 'Published on the network.', 'color-vivo-social-publishing-for-postiz' ), $post, $chan, array( 'url' => $changes['release_url'] ?? '' ) );
 		} elseif ( 'error' === $status ) {
-			$message = '' !== ( $changes['error'] ?? '' ) ? $changes['error'] : __( 'Postiz reports an error for this post.', 'social-relay-for-postiz' );
+			$message = '' !== ( $changes['error'] ?? '' ) ? $changes['error'] : __( 'Postiz reports an error for this post.', 'color-vivo-social-publishing-for-postiz' );
 			$this->plugin->logger->error( 'sync', $message, $post, $chan );
 		}
 	}

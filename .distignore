@@ -19,3 +19,4 @@
 /.wordpress-org
 /.wp-env.json
 /.wp-env.override.json
+/languages

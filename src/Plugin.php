@@ -146,7 +146,7 @@ final class Plugin {
 	 */
 	public static function instance(): self {
 		if ( null === self::$instance ) {
-			throw new \LogicException( 'Social Relay for Postiz has not booted yet.' );
+			throw new \LogicException( 'Color Vivo Social Publishing for Postiz has not booted yet.' );
 		}
 
 		return self::$instance;
@@ -232,7 +232,7 @@ final class Plugin {
 		}
 
 		if ( defined( 'WP_CLI' ) && class_exists( \WP_CLI::class ) ) {
-			\WP_CLI::add_command( 'social-relay', new Cli\Command( $this ) );
+			\WP_CLI::add_command( 'social-publishing', new Cli\Command( $this ) );
 		}
 
 		/**

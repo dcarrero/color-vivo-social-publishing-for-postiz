@@ -24,11 +24,11 @@ function NotReady() {
 				{ connected
 					? __(
 							'Sharing is off for this post type.',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 					  )
 					: __(
 							'Postiz is not connected yet.',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 					  ) }
 			</p>
 			{ config.canManage && (
@@ -36,9 +36,9 @@ function NotReady() {
 					{ connected
 						? __(
 								'Set up a publishing profile',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 						  )
-						: __( 'Connect Postiz', 'social-relay-for-postiz' ) }
+						: __( 'Connect Postiz', 'color-vivo-social-publishing-for-postiz' ) }
 				</ExternalLink>
 			) }
 		</PanelBody>
@@ -67,7 +67,7 @@ export default function Sidebar() {
 		/* translators: 1: profile name (post type), 2: channels used, 3: channels available, 4: timing. */
 		__(
 			'Profile “%1$s” · %2$d of %3$d channels · %4$s',
-			'social-relay-for-postiz'
+			'color-vivo-social-publishing-for-postiz'
 		),
 		config.profile.label,
 		count,
@@ -79,7 +79,7 @@ export default function Sidebar() {
 		<>
 			<PanelBody className="socialrelaycvi-sidebar__share">
 				<ToggleControl
-					label={ __( 'Share this post', 'social-relay-for-postiz' ) }
+					label={ __( 'Share this post', 'color-vivo-social-publishing-for-postiz' ) }
 					checked={ enabled }
 					onChange={ ( value ) => setMeta( META.enabled, value ) }
 					help={ summary }
@@ -89,7 +89,7 @@ export default function Sidebar() {
 					<ToggleControl
 						label={ __(
 							'Share again on the next update',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						) }
 						checked={ !! meta[ META.reshare ] }
 						onChange={ ( value ) => setMeta( META.reshare, value ) }
@@ -100,7 +100,7 @@ export default function Sidebar() {
 
 			{ /* The history stays visible even when sharing is turned off afterwards. */ }
 			{ published && (
-				<PanelBody title={ __( 'Status', 'social-relay-for-postiz' ) }>
+				<PanelBody title={ __( 'Status', 'color-vivo-social-publishing-for-postiz' ) }>
 					<StatusSection
 						postId={ postId }
 						saves={ saves }
@@ -112,31 +112,31 @@ export default function Sidebar() {
 			{ enabled && (
 				<>
 					<PanelBody
-						title={ __( 'Channels', 'social-relay-for-postiz' ) }
+						title={ __( 'Channels', 'color-vivo-social-publishing-for-postiz' ) }
 						initialOpen={ ! published }
 					>
 						<ChannelsSection meta={ meta } setMeta={ setMeta } />
 					</PanelBody>
 					<PanelBody
-						title={ __( 'When', 'social-relay-for-postiz' ) }
+						title={ __( 'When', 'color-vivo-social-publishing-for-postiz' ) }
 						initialOpen={ ! published }
 					>
 						<TimingSection meta={ meta } setMeta={ setMeta } />
 					</PanelBody>
 					<PanelBody
-						title={ __( 'Message', 'social-relay-for-postiz' ) }
+						title={ __( 'Message', 'color-vivo-social-publishing-for-postiz' ) }
 						initialOpen={ ! published }
 					>
 						<MessageSection meta={ meta } setMeta={ setMeta } />
 					</PanelBody>
 					<PanelBody
-						title={ __( 'Images', 'social-relay-for-postiz' ) }
+						title={ __( 'Images', 'color-vivo-social-publishing-for-postiz' ) }
 						initialOpen={ false }
 					>
 						<ImagesSection meta={ meta } setMeta={ setMeta } />
 					</PanelBody>
 					<PanelBody
-						title={ __( 'Preview', 'social-relay-for-postiz' ) }
+						title={ __( 'Preview', 'color-vivo-social-publishing-for-postiz' ) }
 						initialOpen={ false }
 					>
 						<PreviewSection postId={ postId } saves={ saves } />

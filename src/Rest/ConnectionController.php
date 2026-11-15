@@ -112,7 +112,7 @@ final class ConnectionController implements Module {
 						'required' => true,
 					),
 					'channels' => array(
-						'description' => __( 'Only these channel ids (retry). Empty: every channel of the post.', 'social-relay-for-postiz' ),
+						'description' => __( 'Only these channel ids (retry). Empty: every channel of the post.', 'color-vivo-social-publishing-for-postiz' ),
 						'type'        => 'array',
 						'items'       => array( 'type' => 'string' ),
 						'default'     => array(),
@@ -150,7 +150,7 @@ final class ConnectionController implements Module {
 						'required' => true,
 					),
 					'channel' => array(
-						'description' => __( 'Channel id to write for; empty for a text for all networks.', 'social-relay-for-postiz' ),
+						'description' => __( 'Channel id to write for; empty for a text for all networks.', 'color-vivo-social-publishing-for-postiz' ),
 						'type'        => 'string',
 						'default'     => '',
 					),
@@ -238,7 +238,7 @@ final class ConnectionController implements Module {
 	public function preview( WP_REST_Request $request ): WP_REST_Response|\WP_Error {
 		$post = get_post( (int) $request['id'] );
 		if ( ! $post instanceof \WP_Post ) {
-			return new \WP_Error( 'socialrelaycvi_not_found', __( 'Post not found.', 'social-relay-for-postiz' ), array( 'status' => 404 ) );
+			return new \WP_Error( 'socialrelaycvi_not_found', __( 'Post not found.', 'color-vivo-social-publishing-for-postiz' ), array( 'status' => 404 ) );
 		}
 
 		$preview = $this->plugin->share_service->preview( $post );
@@ -255,7 +255,7 @@ final class ConnectionController implements Module {
 	public function share( WP_REST_Request $request ): WP_REST_Response|\WP_Error {
 		$post = get_post( (int) $request['id'] );
 		if ( ! $post instanceof \WP_Post ) {
-			return new \WP_Error( 'socialrelaycvi_not_found', __( 'Post not found.', 'social-relay-for-postiz' ), array( 'status' => 404 ) );
+			return new \WP_Error( 'socialrelaycvi_not_found', __( 'Post not found.', 'color-vivo-social-publishing-for-postiz' ), array( 'status' => 404 ) );
 		}
 
 		$reason = $this->plugin->share_service->why_not_shared( $post );
@@ -264,7 +264,7 @@ final class ConnectionController implements Module {
 		}
 
 		if ( ! ShareService::claim_reshare_slot( $post->ID ) ) {
-			return new \WP_Error( 'socialrelaycvi_too_soon', __( 'This post was just sent. Wait a minute before sharing it again.', 'social-relay-for-postiz' ), array( 'status' => 429 ) );
+			return new \WP_Error( 'socialrelaycvi_too_soon', __( 'This post was just sent. Wait a minute before sharing it again.', 'color-vivo-social-publishing-for-postiz' ), array( 'status' => 429 ) );
 		}
 
 		$channels = array_values( array_filter( array_map( 'sanitize_text_field', array_map( 'strval', (array) $request->get_param( 'channels' ) ) ) ) );
@@ -290,7 +290,7 @@ final class ConnectionController implements Module {
 
 		if ( $pending > 0 ) {
 			if ( ! $this->plugin->connection->is_configured() ) {
-				return new \WP_Error( 'socialrelaycvi_not_configured', __( 'Postiz is not configured yet.', 'social-relay-for-postiz' ), array( 'status' => 409 ) );
+				return new \WP_Error( 'socialrelaycvi_not_configured', __( 'Postiz is not configured yet.', 'color-vivo-social-publishing-for-postiz' ), array( 'status' => 409 ) );
 			}
 			$this->plugin->share_service->cancel( $post_id );
 		}
@@ -314,11 +314,11 @@ final class ConnectionController implements Module {
 	public function suggest( WP_REST_Request $request ): WP_REST_Response|\WP_Error {
 		$post = get_post( (int) $request['id'] );
 		if ( ! $post instanceof \WP_Post ) {
-			return new \WP_Error( 'socialrelaycvi_not_found', __( 'Post not found.', 'social-relay-for-postiz' ), array( 'status' => 404 ) );
+			return new \WP_Error( 'socialrelaycvi_not_found', __( 'Post not found.', 'color-vivo-social-publishing-for-postiz' ), array( 'status' => 404 ) );
 		}
 
 		if ( ! self::take_ai_quota( get_current_user_id() ) ) {
-			return new \WP_Error( 'socialrelaycvi_ai_quota', __( 'You have asked for many suggestions in the last hour. Try again later.', 'social-relay-for-postiz' ), array( 'status' => 429 ) );
+			return new \WP_Error( 'socialrelaycvi_ai_quota', __( 'You have asked for many suggestions in the last hour. Try again later.', 'color-vivo-social-publishing-for-postiz' ), array( 'status' => 429 ) );
 		}
 
 		$identifier = '';

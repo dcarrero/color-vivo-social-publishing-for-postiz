@@ -33,7 +33,7 @@ export default function ChannelsSection( { meta, setMeta } ) {
 			<p>
 				{ __(
 					'No channels in Postiz yet.',
-					'social-relay-for-postiz'
+					'color-vivo-social-publishing-for-postiz'
 				) }
 			</p>
 		);
@@ -56,11 +56,11 @@ export default function ChannelsSection( { meta, setMeta } ) {
 					{ custom
 						? __(
 								'Chosen for this post',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 						  )
 						: __(
 								'From the publishing profile',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 						  ) }
 				</span>
 				<span>
@@ -72,14 +72,14 @@ export default function ChannelsSection( { meta, setMeta } ) {
 							)
 						}
 					>
-						{ __( 'All', 'social-relay-for-postiz' ) }
+						{ __( 'All', 'color-vivo-social-publishing-for-postiz' ) }
 					</Button>
 					{ ' · ' }
 					<Button
 						variant="link"
 						onClick={ () => setChannels( [ NO_CHANNELS ] ) }
 					>
-						{ __( 'None', 'social-relay-for-postiz' ) }
+						{ __( 'None', 'color-vivo-social-publishing-for-postiz' ) }
 					</Button>
 				</span>
 			</div>
@@ -95,7 +95,7 @@ export default function ChannelsSection( { meta, setMeta } ) {
 								channel.disabled
 									? __(
 											'Disconnected in Postiz',
-											'social-relay-for-postiz'
+											'color-vivo-social-publishing-for-postiz'
 									  )
 									: ''
 							}
@@ -116,7 +116,7 @@ export default function ChannelsSection( { meta, setMeta } ) {
 							'%d selected channel no longer exists in Postiz and will be skipped.',
 							'%d selected channels no longer exist in Postiz and will be skipped.',
 							gone.length,
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						),
 						gone.length
 					) }{ ' ' }
@@ -129,14 +129,14 @@ export default function ChannelsSection( { meta, setMeta } ) {
 								)
 							}
 						>
-							{ __( 'Remove them', 'social-relay-for-postiz' ) }
+							{ __( 'Remove them', 'color-vivo-social-publishing-for-postiz' ) }
 						</Button>
 					) : (
 						config.canManage && (
 							<ExternalLink href={ config.settingsUrl }>
 								{ __(
 									'Review the profile',
-									'social-relay-for-postiz'
+									'color-vivo-social-publishing-for-postiz'
 								) }
 							</ExternalLink>
 						)
@@ -148,7 +148,7 @@ export default function ChannelsSection( { meta, setMeta } ) {
 				<Button variant="link" onClick={ () => setChannels( [] ) }>
 					{ __(
 						'Use the profile channels',
-						'social-relay-for-postiz'
+						'color-vivo-social-publishing-for-postiz'
 					) }
 				</Button>
 			) }

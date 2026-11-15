@@ -18,14 +18,14 @@ use WP_CLI\Utils;
 // phpcs:disable Generic.CodeAnalysis.UnusedFunctionParameter -- WP-CLI passes $args and $assoc_args to every command.
 
 /**
- * Manage Social Relay for Postiz from the command line.
+ * Manage Color Vivo Social Publishing for Postiz from the command line.
  *
  * ## EXAMPLES
  *
- *     wp social-relay status
- *     wp social-relay channels --format=table
- *     wp social-relay preview 123
- *     wp social-relay share 123 --now
+ *     wp social-publishing status
+ *     wp social-publishing channels --format=table
+ *     wp social-publishing preview 123
+ *     wp social-publishing share 123 --now
  */
 final class Command {
 
@@ -88,7 +88,7 @@ final class Command {
 	 *
 	 * ## EXAMPLES
 	 *
-	 *     wp social-relay test
+	 *     wp social-publishing test
 	 *
 	 * @param array<int, string>    $args       Positional arguments.
 	 * @param array<string, string> $assoc_args Options.
@@ -222,8 +222,8 @@ final class Command {
 	 *
 	 * ## EXAMPLES
 	 *
-	 *     wp social-relay share 123
-	 *     wp social-relay share 123 --now --force
+	 *     wp social-publishing share 123
+	 *     wp social-publishing share 123 --now --force
 	 *
 	 * @param array<int, string>    $args       Positional arguments.
 	 * @param array<string, string> $assoc_args Options.
@@ -247,7 +247,7 @@ final class Command {
 
 		if ( ! Utils\get_flag_value( $assoc_args, 'now', false ) ) {
 			$this->plugin->queue->enqueue_share( $post_id, 0 );
-			WP_CLI::success( 'Share queued. Follow it with: wp social-relay shares ' . $post_id );
+			WP_CLI::success( 'Share queued. Follow it with: wp social-publishing shares ' . $post_id );
 			return;
 		}
 
@@ -256,7 +256,7 @@ final class Command {
 
 		if ( count( $this->plugin->shares->for_post( $post_id ) ) === $before ) {
 			$last = $this->plugin->logger->latest( 1 )[0] ?? null;
-			WP_CLI::error( 'Nothing was sent.' . ( $last && (int) $last['post_id'] === $post_id ? ' ' . $last['message'] : ' See: wp social-relay log' ) );
+			WP_CLI::error( 'Nothing was sent.' . ( $last && (int) $last['post_id'] === $post_id ? ' ' . $last['message'] : ' See: wp social-publishing log' ) );
 		}
 
 		$this->shares( array( (string) $post_id ), array() );
@@ -324,7 +324,7 @@ final class Command {
 		$left = count( $this->plugin->shares->cancellable_batches( $post_id ) );
 
 		if ( $left > 0 ) {
-			WP_CLI::error( sprintf( '%d of %d pending group(s) could not be cancelled. See: wp social-relay log', $left, $pending ) );
+			WP_CLI::error( sprintf( '%d of %d pending group(s) could not be cancelled. See: wp social-publishing log', $left, $pending ) );
 		}
 
 		WP_CLI::success( sprintf( 'Cancelled %d pending group(s) in Postiz.', $pending ) );

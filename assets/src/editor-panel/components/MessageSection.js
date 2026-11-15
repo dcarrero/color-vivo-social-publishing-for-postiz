@@ -98,7 +98,7 @@ function MessageEditor( {
 						isBusy={ thinking }
 						disabled={ thinking || ! postId }
 					>
-						{ __( 'Suggest with AI', 'social-relay-for-postiz' ) }
+						{ __( 'Suggest with AI', 'color-vivo-social-publishing-for-postiz' ) }
 					</Button>
 				) }
 				<TagMenu onInsert={ insert } />
@@ -111,7 +111,7 @@ function MessageEditor( {
 							setPrevious( null );
 						} }
 					>
-						{ __( 'Undo', 'social-relay-for-postiz' ) }
+						{ __( 'Undo', 'color-vivo-social-publishing-for-postiz' ) }
 					</Button>
 				) }
 				{ value && previous === null && (
@@ -120,7 +120,7 @@ function MessageEditor( {
 						size="compact"
 						onClick={ () => onChange( '' ) }
 					>
-						{ __( 'Use profile text', 'social-relay-for-postiz' ) }
+						{ __( 'Use profile text', 'color-vivo-social-publishing-for-postiz' ) }
 					</Button>
 				) }
 			</div>
@@ -128,7 +128,7 @@ function MessageEditor( {
 				<p className="description socialrelaycvi-message__ai">
 					{ __(
 						'AI uses the saved post and your provider in Settings → Connectors. Review the text before publishing.',
-						'social-relay-for-postiz'
+						'color-vivo-social-publishing-for-postiz'
 					) }
 				</p>
 			) }
@@ -173,7 +173,7 @@ export default function MessageSection( { meta, setMeta } ) {
 					( shared ? ' · ' + network( identifier ).label : '' )
 				}
 				marked={ !! overrides[ id ] }
-				note={ __( 'own text', 'social-relay-for-postiz' ) }
+				note={ __( 'own text', 'color-vivo-social-publishing-for-postiz' ) }
 			/>
 		);
 	};
@@ -183,9 +183,9 @@ export default function MessageSection( { meta, setMeta } ) {
 			name: ALL,
 			title: (
 				<Marked
-					label={ __( 'All', 'social-relay-for-postiz' ) }
+					label={ __( 'All', 'color-vivo-social-publishing-for-postiz' ) }
 					marked={ !! message }
-					note={ __( 'own text', 'social-relay-for-postiz' ) }
+					note={ __( 'own text', 'color-vivo-social-publishing-for-postiz' ) }
 				/>
 			),
 		},
@@ -203,11 +203,11 @@ export default function MessageSection( { meta, setMeta } ) {
 						<MessageEditor
 							label={ __(
 								'Text for all channels',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							) }
 							help={ __(
 								'Leave it empty to use the profile template (in grey). A dot on a channel tab means it has its own text.',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							) }
 							value={ message }
 							channel=""
@@ -232,13 +232,13 @@ export default function MessageSection( { meta, setMeta } ) {
 										/* translators: %d: character limit of the network. */
 										__(
 											'Empty: uses the text for all channels. Limit: %d characters; check the count in Preview.',
-											'social-relay-for-postiz'
+											'color-vivo-social-publishing-for-postiz'
 										),
 										limit
 								  )
 								: __(
 										'Empty: uses the text for all channels.',
-										'social-relay-for-postiz'
+										'color-vivo-social-publishing-for-postiz'
 								  )
 						}
 						value={ overrides[ tab.name ] || '' }

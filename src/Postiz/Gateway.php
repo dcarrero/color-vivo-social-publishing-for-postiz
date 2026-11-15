@@ -16,7 +16,7 @@ use WP_Error;
  *
  * Implementations:
  *  - Client: talks directly to a Postiz instance with its API key.
- *  - Hub gateway (planned): talks to a Social Relay Agency Hub, which holds the
+ *  - Hub gateway (planned): talks to an Agency Hub, which holds the
  *    only Postiz key, limits the channels each site may use and forwards the call.
  *
  * Every method returns the decoded response or a WP_Error with `status`,

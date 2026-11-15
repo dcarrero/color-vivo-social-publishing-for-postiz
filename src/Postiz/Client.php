@@ -77,7 +77,7 @@ final class Client implements Gateway {
 		if ( is_wp_error( $response ) && 'socialrelaycvi_http' === $response->get_error_code() && 1 === preg_match( '/timed? ?out|cURL error 28/i', $response->get_error_message() ) ) {
 			return new WP_Error(
 				'socialrelaycvi_timeout',
-				__( 'Postiz took too long to answer and may have created the post anyway. Check Postiz before sharing again.', 'social-relay-for-postiz' ),
+				__( 'Postiz took too long to answer and may have created the post anyway. Check Postiz before sharing again.', 'color-vivo-social-publishing-for-postiz' ),
 				array(
 					'status'    => 0,
 					'retryable' => false,
@@ -235,13 +235,13 @@ final class Client implements Gateway {
 		}
 
 		return match ( true ) {
-			401 === $status => __( '401 · The API key is not valid for this Postiz instance.', 'social-relay-for-postiz' ),
-			403 === $status => __( '403 · The API key cannot access this resource.', 'social-relay-for-postiz' ),
-			404 === $status => __( '404 · Endpoint not found. Check the Postiz URL.', 'social-relay-for-postiz' ),
-			413 === $status => __( '413 · Request too large.', 'social-relay-for-postiz' ),
-			429 === $status => __( '429 · Postiz API rate limit reached.', 'social-relay-for-postiz' ),
+			401 === $status => __( '401 · The API key is not valid for this Postiz instance.', 'color-vivo-social-publishing-for-postiz' ),
+			403 === $status => __( '403 · The API key cannot access this resource.', 'color-vivo-social-publishing-for-postiz' ),
+			404 === $status => __( '404 · Endpoint not found. Check the Postiz URL.', 'color-vivo-social-publishing-for-postiz' ),
+			413 === $status => __( '413 · Request too large.', 'color-vivo-social-publishing-for-postiz' ),
+			429 === $status => __( '429 · Postiz API rate limit reached.', 'color-vivo-social-publishing-for-postiz' ),
 			/* translators: %d: HTTP status code. */
-			default         => sprintf( __( '%d · Unexpected response from Postiz.', 'social-relay-for-postiz' ), $status ),
+			default         => sprintf( __( '%d · Unexpected response from Postiz.', 'color-vivo-social-publishing-for-postiz' ), $status ),
 		};
 	}
 }

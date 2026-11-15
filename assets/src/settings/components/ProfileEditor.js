@@ -75,7 +75,7 @@ export default function ProfileEditor( {
 							/* translators: %s: post type label, e.g. Posts. */
 							__(
 								'Share %s when they are published',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							),
 							info.label.toLowerCase()
 						) }
@@ -87,7 +87,7 @@ export default function ProfileEditor( {
 						<Notice status="warning" isDismissible={ false }>
 							{ __(
 								'Sharing is on but no channel is ticked, so nothing will be sent. Pick at least one channel below.',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							) }
 						</Notice>
 					) }
@@ -96,14 +96,14 @@ export default function ProfileEditor( {
 
 			<Card>
 				<CardHeader>
-					<h3>{ __( 'Channels', 'social-relay-for-postiz' ) }</h3>
+					<h3>{ __( 'Channels', 'color-vivo-social-publishing-for-postiz' ) }</h3>
 				</CardHeader>
 				<CardBody>
 					{ ! channels.length && (
 						<p>
 							{ __(
 								'No channels in Postiz yet. Add them in Postiz and reload this page.',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							) }
 						</p>
 					) }
@@ -130,14 +130,14 @@ export default function ProfileEditor( {
 									'%d channel of this profile no longer exists in Postiz and is skipped.',
 									'%d channels of this profile no longer exist in Postiz and are skipped.',
 									gone.length,
-									'social-relay-for-postiz'
+									'color-vivo-social-publishing-for-postiz'
 								),
 								gone.length
 							) }{ ' ' }
 							<Button variant="link" onClick={ removeGone }>
 								{ __(
 									'Remove them',
-									'social-relay-for-postiz'
+									'color-vivo-social-publishing-for-postiz'
 								) }
 							</Button>
 						</Notice>
@@ -147,19 +147,19 @@ export default function ProfileEditor( {
 
 			<Card>
 				<CardHeader>
-					<h3>{ __( 'Message', 'social-relay-for-postiz' ) }</h3>
+					<h3>{ __( 'Message', 'color-vivo-social-publishing-for-postiz' ) }</h3>
 				</CardHeader>
 				<CardBody>
 					<TemplateField
 						label={ __(
 							'Message template',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						) }
 						value={ profile.template }
 						rows={ 5 }
 						help={ __(
 							'Use “Insert tag” for the post data. Filters such as |limit:100, |words:30, |upper, |hashtag or |default:text go inside a tag. A line with --- starts a new thread part.',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						) }
 						onChange={ ( template ) => update( { template } ) }
 					/>
@@ -170,7 +170,7 @@ export default function ProfileEditor( {
 							<p className="description">
 								{ __(
 									'Optional. A channel without its own template uses the common one.',
-									'social-relay-for-postiz'
+									'color-vivo-social-publishing-for-postiz'
 								) }
 							</p>
 						</CardBody>
@@ -202,11 +202,11 @@ export default function ProfileEditor( {
 
 			<Card>
 				<CardHeader>
-					<h3>{ __( 'When', 'social-relay-for-postiz' ) }</h3>
+					<h3>{ __( 'When', 'color-vivo-social-publishing-for-postiz' ) }</h3>
 				</CardHeader>
 				<CardBody>
 					<SelectControl
-						label={ __( 'When', 'social-relay-for-postiz' ) }
+						label={ __( 'When', 'color-vivo-social-publishing-for-postiz' ) }
 						hideLabelFromVision
 						value={ profile.mode }
 						options={ MODES }
@@ -218,7 +218,7 @@ export default function ProfileEditor( {
 						<TextControl
 							label={ __(
 								'Delay in minutes',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							) }
 							type="number"
 							min={ 0 }
@@ -234,13 +234,13 @@ export default function ProfileEditor( {
 						/>
 					) }
 					<SelectControl
-						label={ __( 'Images', 'social-relay-for-postiz' ) }
+						label={ __( 'Images', 'color-vivo-social-publishing-for-postiz' ) }
 						value={ profile.images }
 						options={ IMAGE_MODES }
 						onChange={ ( images ) => update( { images } ) }
 						help={ __(
 							'Up to 10 images; each network gets as many as it accepts (X 4, LinkedIn 9, Instagram 10, Pinterest 1). The editor can choose others for each post.',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						) }
 						__nextHasNoMarginBottom
 						__next40pxDefaultSize
@@ -248,7 +248,7 @@ export default function ProfileEditor( {
 					<ToggleControl
 						label={ __(
 							'Let editors share a post again after updating it',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						) }
 						checked={ profile.share_on_update }
 						onChange={ ( value ) =>
@@ -264,7 +264,7 @@ export default function ProfileEditor( {
 				<Card>
 					<CardHeader>
 						<h3>
-							{ __( 'Conditions', 'social-relay-for-postiz' ) }
+							{ __( 'Conditions', 'color-vivo-social-publishing-for-postiz' ) }
 						</h3>
 					</CardHeader>
 					<CardBody>
@@ -292,14 +292,14 @@ export default function ProfileEditor( {
 			<Card>
 				<CardHeader>
 					<h3>
-						{ __( 'Links and tags', 'social-relay-for-postiz' ) }
+						{ __( 'Links and tags', 'color-vivo-social-publishing-for-postiz' ) }
 					</h3>
 				</CardHeader>
 				<CardBody>
 					<ToggleControl
 						label={ __(
 							'Add UTM parameters to {url} (utm_source = network, utm_medium = social)',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						) }
 						checked={ profile.utm }
 						onChange={ ( utm ) => update( { utm } ) }
@@ -310,7 +310,7 @@ export default function ProfileEditor( {
 							label="utm_campaign"
 							help={ __(
 								'Accepts tags, e.g. {slug}.',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							) }
 							value={ profile.utm_campaign }
 							onChange={ ( value ) =>
@@ -323,7 +323,7 @@ export default function ProfileEditor( {
 					<ToggleControl
 						label={ __(
 							'Shorten links with Postiz',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						) }
 						checked={ profile.short_link }
 						onChange={ ( value ) =>
@@ -334,7 +334,7 @@ export default function ProfileEditor( {
 					<ToggleControl
 						label={ __(
 							'Tag the posts in Postiz with the post categories',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						) }
 						checked={ profile.postiz_tags }
 						onChange={ ( value ) =>

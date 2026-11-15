@@ -18,7 +18,7 @@
 			"step": "installPlugin",
 			"pluginData": {
 				"resource": "wordpress.org/plugins",
-				"slug": "social-relay-for-postiz"
+				"slug": "color-vivo-social-publishing-for-postiz"
 			},
 			"options": {
 				"activate": true

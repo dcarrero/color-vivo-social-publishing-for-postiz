@@ -51,7 +51,7 @@ export default function AdvancedTab( { settings, setSettings } ) {
 			<Card>
 				<CardHeader>
 					<h3>
-						{ __( 'Notifications', 'social-relay-for-postiz' ) }
+						{ __( 'Notifications', 'color-vivo-social-publishing-for-postiz' ) }
 					</h3>
 				</CardHeader>
 				<CardBody>
@@ -60,7 +60,7 @@ export default function AdvancedTab( { settings, setSettings } ) {
 							status="success"
 							onRemove={ () => setSaved( false ) }
 						>
-							{ __( 'Saved.', 'social-relay-for-postiz' ) }
+							{ __( 'Saved.', 'color-vivo-social-publishing-for-postiz' ) }
 						</Notice>
 					) }
 					{ error && (
@@ -74,13 +74,13 @@ export default function AdvancedTab( { settings, setSettings } ) {
 					<ToggleControl
 						label={ __(
 							'Email me when a share fails',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						) }
 						help={ sprintf(
 							/* translators: %s: email address. */
 							__(
 								'A summary to %s, at most once an hour, only for failures that were not retried with success. Admins also see a notice in the dashboard.',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							),
 							advanced.admin_email
 						) }
@@ -93,17 +93,17 @@ export default function AdvancedTab( { settings, setSettings } ) {
 			</Card>
 			<Card>
 				<CardHeader>
-					<h3>{ __( 'Plugin data', 'social-relay-for-postiz' ) }</h3>
+					<h3>{ __( 'Plugin data', 'color-vivo-social-publishing-for-postiz' ) }</h3>
 				</CardHeader>
 				<CardBody>
 					<ToggleControl
 						label={ __(
 							'Delete all plugin data when the plugin is deleted',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						) }
 						help={ __(
 							'Removes the settings, the log, the record of what was sent and the per-post options. Nothing is deleted in Postiz.',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						) }
 						checked={
 							advanced.delete_on_uninstall ||
@@ -119,7 +119,7 @@ export default function AdvancedTab( { settings, setSettings } ) {
 						<p className="description">
 							{ __(
 								'Forced by SOCIALRELAYCVI_DELETE_DATA in wp-config.php.',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							) }
 						</p>
 					) }

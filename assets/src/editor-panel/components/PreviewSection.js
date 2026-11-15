@@ -60,7 +60,7 @@ export default function PreviewSection( { postId, saves } ) {
 			<p className="description">
 				{ __(
 					'Save a draft to see the preview.',
-					'social-relay-for-postiz'
+					'color-vivo-social-publishing-for-postiz'
 				) }
 			</p>
 		);
@@ -72,7 +72,7 @@ export default function PreviewSection( { postId, saves } ) {
 				<Notice status="warning" isDismissible={ false }>
 					{ __(
 						'This post does not match the profile conditions and will not be shared.',
-						'social-relay-for-postiz'
+						'color-vivo-social-publishing-for-postiz'
 					) }
 				</Notice>
 			) }
@@ -96,14 +96,14 @@ export default function PreviewSection( { postId, saves } ) {
 				{ dirty
 					? __(
 							'You have unsaved changes: the preview shows the last saved version.',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 					  )
 					: __(
 							'Based on the last saved version.',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 					  ) }{ ' ' }
 				<Button variant="link" onClick={ load } disabled={ loading }>
-					{ __( 'Refresh', 'social-relay-for-postiz' ) }
+					{ __( 'Refresh', 'color-vivo-social-publishing-for-postiz' ) }
 				</Button>
 			</p>
 		</>

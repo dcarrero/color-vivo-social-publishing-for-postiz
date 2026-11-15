@@ -34,12 +34,12 @@ export function imagesLabel( mode ) {
 		case 'content':
 			return __(
 				'Featured image and images in the post',
-				'social-relay-for-postiz'
+				'color-vivo-social-publishing-for-postiz'
 			);
 		case 'none':
-			return __( 'No images', 'social-relay-for-postiz' );
+			return __( 'No images', 'color-vivo-social-publishing-for-postiz' );
 		default:
-			return __( 'Featured image', 'social-relay-for-postiz' );
+			return __( 'Featured image', 'color-vivo-social-publishing-for-postiz' );
 	}
 }
 
@@ -171,28 +171,28 @@ export default function ImagesSection( { meta, setMeta } ) {
 
 	let help = sprintf(
 		/* translators: %s: image setting of the profile. */
-		__( 'Profile setting: %s.', 'social-relay-for-postiz' ),
+		__( 'Profile setting: %s.', 'color-vivo-social-publishing-for-postiz' ),
 		imagesLabel( profileMode )
 	);
 	if ( mode === 'none' ) {
 		help = __(
 			'Shared without images. Networks that need one (Instagram, Pinterest…) are skipped.',
-			'social-relay-for-postiz'
+			'color-vivo-social-publishing-for-postiz'
 		);
 	} else if ( mode === 'choose' ) {
 		help = ids.length
 			? __(
 					'Only these images, in this order.',
-					'social-relay-for-postiz'
+					'color-vivo-social-publishing-for-postiz'
 			  )
 			: __(
 					'Pick the images for this post in the media library.',
-					'social-relay-for-postiz'
+					'color-vivo-social-publishing-for-postiz'
 			  );
 	} else if ( ! ids.length && profileMode !== 'none' ) {
 		help = __(
 			'This post has no images for the profile setting yet.',
-			'social-relay-for-postiz'
+			'color-vivo-social-publishing-for-postiz'
 		);
 	}
 
@@ -216,7 +216,7 @@ export default function ImagesSection( { meta, setMeta } ) {
 	return (
 		<>
 			<ToggleGroupControl
-				label={ __( 'Images', 'social-relay-for-postiz' ) }
+				label={ __( 'Images', 'color-vivo-social-publishing-for-postiz' ) }
 				hideLabelFromVision
 				value={ mode }
 				onChange={ setMode }
@@ -226,15 +226,15 @@ export default function ImagesSection( { meta, setMeta } ) {
 			>
 				<ToggleGroupControlOption
 					value="profile"
-					label={ __( 'Profile', 'social-relay-for-postiz' ) }
+					label={ __( 'Profile', 'color-vivo-social-publishing-for-postiz' ) }
 				/>
 				<ToggleGroupControlOption
 					value="choose"
-					label={ __( 'Choose', 'social-relay-for-postiz' ) }
+					label={ __( 'Choose', 'color-vivo-social-publishing-for-postiz' ) }
 				/>
 				<ToggleGroupControlOption
 					value="none"
-					label={ __( 'None', 'social-relay-for-postiz' ) }
+					label={ __( 'None', 'color-vivo-social-publishing-for-postiz' ) }
 				/>
 			</ToggleGroupControl>
 
@@ -265,7 +265,7 @@ export default function ImagesSection( { meta, setMeta } ) {
 										size="small"
 										label={ __(
 											'Remove image',
-											'social-relay-for-postiz'
+											'color-vivo-social-publishing-for-postiz'
 										) }
 										onClick={ () => {
 											const next = own.filter(
@@ -285,8 +285,8 @@ export default function ImagesSection( { meta, setMeta } ) {
 				<div className="socialrelaycvi-images__actions">
 					{ picker(
 						ids.length
-							? __( 'Edit selection', 'social-relay-for-postiz' )
-							: __( 'Select images', 'social-relay-for-postiz' ),
+							? __( 'Edit selection', 'color-vivo-social-publishing-for-postiz' )
+							: __( 'Select images', 'color-vivo-social-publishing-for-postiz' ),
 						'secondary'
 					) }
 				</div>
@@ -302,7 +302,7 @@ export default function ImagesSection( { meta, setMeta } ) {
 								/* translators: 1: network name, 2: number of images. */
 								__(
 									'%1$s gets the first %2$d.',
-									'social-relay-for-postiz'
+									'color-vivo-social-publishing-for-postiz'
 								),
 								label,
 								max

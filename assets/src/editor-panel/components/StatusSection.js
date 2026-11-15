@@ -44,7 +44,7 @@ function statusCount( status, count ) {
 					'%d queued',
 					'%d queued',
 					count,
-					'social-relay-for-postiz'
+					'color-vivo-social-publishing-for-postiz'
 				),
 				count
 			);
@@ -55,14 +55,14 @@ function statusCount( status, count ) {
 					'%d published',
 					'%d published',
 					count,
-					'social-relay-for-postiz'
+					'color-vivo-social-publishing-for-postiz'
 				),
 				count
 			);
 		case 'error':
 			return sprintf(
 				/* translators: %d: number of channels. */
-				_n( '%d error', '%d errors', count, 'social-relay-for-postiz' ),
+				_n( '%d error', '%d errors', count, 'color-vivo-social-publishing-for-postiz' ),
 				count
 			);
 		case 'draft':
@@ -72,7 +72,7 @@ function statusCount( status, count ) {
 					'%d draft in Postiz',
 					'%d drafts in Postiz',
 					count,
-					'social-relay-for-postiz'
+					'color-vivo-social-publishing-for-postiz'
 				),
 				count
 			);
@@ -83,7 +83,7 @@ function statusCount( status, count ) {
 					'%d cancelled',
 					'%d cancelled',
 					count,
-					'social-relay-for-postiz'
+					'color-vivo-social-publishing-for-postiz'
 				),
 				count
 			);
@@ -136,7 +136,7 @@ function Confirm( {
 			<p>{ children }</p>
 			<Flex justify="flex-end" gap={ 2 }>
 				<Button variant="tertiary" onClick={ onClose }>
-					{ dismiss || __( 'Cancel', 'social-relay-for-postiz' ) }
+					{ dismiss || __( 'Cancel', 'color-vivo-social-publishing-for-postiz' ) }
 				</Button>
 				<Button
 					variant="primary"
@@ -234,7 +234,7 @@ export default function StatusSection( { postId, saves, meta } ) {
 			createSuccessNotice(
 				__(
 					'Queued for Postiz. The status updates here in a few seconds.',
-					'social-relay-for-postiz'
+					'color-vivo-social-publishing-for-postiz'
 				),
 				{ type: 'snackbar' }
 			)
@@ -250,13 +250,13 @@ export default function StatusSection( { postId, saves, meta } ) {
 								'Cancelled %d scheduled post in Postiz.',
 								'Cancelled %d scheduled posts in Postiz.',
 								response.cancelled,
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							),
 							response.cancelled
 					  )
 					: __(
 							'Nothing pending in Postiz for this post.',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 					  ),
 				{ type: 'snackbar' }
 			)
@@ -287,11 +287,11 @@ export default function StatusSection( { postId, saves, meta } ) {
 				<Notice status="error" isDismissible={ false }>
 					{ __(
 						'Could not load the status:',
-						'social-relay-for-postiz'
+						'color-vivo-social-publishing-for-postiz'
 					) }{ ' ' }
 					{ loadError }{ ' ' }
 					<Button variant="link" onClick={ load }>
-						{ __( 'Retry', 'social-relay-for-postiz' ) }
+						{ __( 'Retry', 'color-vivo-social-publishing-for-postiz' ) }
 					</Button>
 				</Notice>
 			) }
@@ -299,7 +299,7 @@ export default function StatusSection( { postId, saves, meta } ) {
 				<p className="description">
 					{ __(
 						'Nothing sent to Postiz yet.',
-						'social-relay-for-postiz'
+						'color-vivo-social-publishing-for-postiz'
 					) }
 				</p>
 			) }
@@ -348,7 +348,7 @@ export default function StatusSection( { postId, saves, meta } ) {
 										? undefined
 										: __(
 												'Channel not in Postiz',
-												'social-relay-for-postiz'
+												'color-vivo-social-publishing-for-postiz'
 										  )
 								}
 							/>
@@ -376,7 +376,7 @@ export default function StatusSection( { postId, saves, meta } ) {
 									<ExternalLink href={ row.release_url }>
 										{ __(
 											'View post',
-											'social-relay-for-postiz'
+											'color-vivo-social-publishing-for-postiz'
 										) }
 									</ExternalLink>
 								) }
@@ -393,7 +393,7 @@ export default function StatusSection( { postId, saves, meta } ) {
 										>
 											{ __(
 												'Retry',
-												'social-relay-for-postiz'
+												'color-vivo-social-publishing-for-postiz'
 											) }
 										</Button>
 									) }
@@ -411,13 +411,13 @@ export default function StatusSection( { postId, saves, meta } ) {
 					isBusy={ busy }
 					onClick={ () => setAsking( 'share' ) }
 				>
-					{ __( 'Share again now…', 'social-relay-for-postiz' ) }
+					{ __( 'Share again now…', 'color-vivo-social-publishing-for-postiz' ) }
 				</Button>
 				{ ! channelCount && ! dirty && (
 					<p className="description">
 						{ __(
 							'No channels to share to: pick some under Channels.',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						) }
 					</p>
 				) }
@@ -425,7 +425,7 @@ export default function StatusSection( { postId, saves, meta } ) {
 					<p className="description">
 						{ __(
 							'Save your changes first: Postiz gets the saved version.',
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						) }
 					</p>
 				) }
@@ -433,13 +433,13 @@ export default function StatusSection( { postId, saves, meta } ) {
 
 			<p className="description socialrelaycvi-status__footer">
 				<Button variant="link" onClick={ load }>
-					{ __( 'Refresh', 'social-relay-for-postiz' ) }
+					{ __( 'Refresh', 'color-vivo-social-publishing-for-postiz' ) }
 				</Button>
 				{ config.canManage && (
 					<>
 						{ ' · ' }
 						<ExternalLink href={ config.logUrl }>
-							{ __( 'Log', 'social-relay-for-postiz' ) }
+							{ __( 'Log', 'color-vivo-social-publishing-for-postiz' ) }
 						</ExternalLink>
 					</>
 				) }
@@ -454,7 +454,7 @@ export default function StatusSection( { postId, saves, meta } ) {
 						>
 							{ __(
 								'Cancel pending',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							) }
 						</Button>
 					</>
@@ -465,9 +465,9 @@ export default function StatusSection( { postId, saves, meta } ) {
 				<Confirm
 					title={ __(
 						'Share again now?',
-						'social-relay-for-postiz'
+						'color-vivo-social-publishing-for-postiz'
 					) }
-					confirm={ __( 'Share again', 'social-relay-for-postiz' ) }
+					confirm={ __( 'Share again', 'color-vivo-social-publishing-for-postiz' ) }
 					onConfirm={ () => shareAgain() }
 					onClose={ () => setAsking( null ) }
 				>
@@ -477,7 +477,7 @@ export default function StatusSection( { postId, saves, meta } ) {
 							'The saved post is sent to Postiz again for %1$d channel. Timing: %2$s.',
 							'The saved post is sent to Postiz again for %1$d channels. Timing: %2$s.',
 							channelCount,
-							'social-relay-for-postiz'
+							'color-vivo-social-publishing-for-postiz'
 						),
 						channelCount,
 						timingLabel( meta )
@@ -489,20 +489,20 @@ export default function StatusSection( { postId, saves, meta } ) {
 				<Confirm
 					title={ __(
 						'Cancel what is pending?',
-						'social-relay-for-postiz'
+						'color-vivo-social-publishing-for-postiz'
 					) }
 					confirm={ __(
 						'Cancel pending',
-						'social-relay-for-postiz'
+						'color-vivo-social-publishing-for-postiz'
 					) }
-					dismiss={ __( 'Keep them', 'social-relay-for-postiz' ) }
+					dismiss={ __( 'Keep them', 'color-vivo-social-publishing-for-postiz' ) }
 					danger
 					onConfirm={ cancelPending }
 					onClose={ () => setAsking( null ) }
 				>
 					{ __(
 						'Scheduled posts and drafts of this post are deleted in Postiz. What is already published stays.',
-						'social-relay-for-postiz'
+						'color-vivo-social-publishing-for-postiz'
 					) }
 				</Confirm>
 			) }

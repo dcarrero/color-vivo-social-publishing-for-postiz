@@ -96,7 +96,7 @@ final class PostsColumn implements Module {
 	 * @return array<string, string>
 	 */
 	public function add_column( array $columns ): array {
-		$label = __( 'Social networks', 'social-relay-for-postiz' );
+		$label = __( 'Social networks', 'color-vivo-social-publishing-for-postiz' );
 		$out   = array();
 
 		foreach ( $columns as $key => $title ) {
@@ -147,7 +147,7 @@ final class PostsColumn implements Module {
 			$off = ! get_post_meta( $post_id, PostMeta::ENABLED, true );
 			printf(
 				'<span class="socialrelaycvi-col__none">%s</span>',
-				esc_html( $off ? __( 'Sharing off', 'social-relay-for-postiz' ) : '—' )
+				esc_html( $off ? __( 'Sharing off', 'color-vivo-social-publishing-for-postiz' ) : '—' )
 			);
 			return;
 		}
@@ -193,12 +193,12 @@ final class PostsColumn implements Module {
 
 		$current = $this->current_filter();
 		$options = array(
-			''        => __( 'All social statuses', 'social-relay-for-postiz' ),
-			'error'   => __( 'Social: with errors', 'social-relay-for-postiz' ),
-			'pending' => __( 'Social: queued or draft', 'social-relay-for-postiz' ),
+			''        => __( 'All social statuses', 'color-vivo-social-publishing-for-postiz' ),
+			'error'   => __( 'Social: with errors', 'color-vivo-social-publishing-for-postiz' ),
+			'pending' => __( 'Social: queued or draft', 'color-vivo-social-publishing-for-postiz' ),
 		);
 		?>
-		<label for="socialrelaycvi-filter" class="screen-reader-text"><?php esc_html_e( 'Filter by social network status', 'social-relay-for-postiz' ); ?></label>
+		<label for="socialrelaycvi-filter" class="screen-reader-text"><?php esc_html_e( 'Filter by social network status', 'color-vivo-social-publishing-for-postiz' ); ?></label>
 		<select name="<?php echo esc_attr( self::FILTER ); ?>" id="socialrelaycvi-filter">
 			<?php foreach ( $options as $value => $label ) : ?>
 				<option value="<?php echo esc_attr( $value ); ?>" <?php selected( $current, $value ); ?>><?php echo esc_html( $label ); ?></option>

@@ -32,7 +32,7 @@ export default function SkippedNotices( { skipped, names = {} } ) {
 								'%1$s (%2$d channel)',
 								'%1$s (%2$d channels)',
 								list.length,
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							),
 							reason,
 							list.length

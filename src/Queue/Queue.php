@@ -180,7 +180,7 @@ final class Queue implements Module {
 	public function cron_schedules( array $schedules ): array {
 		$schedules[ self::SCHEDULE_15 ] = array(
 			'interval' => 15 * MINUTE_IN_SECONDS,
-			'display'  => __( 'Every 15 minutes', 'social-relay-for-postiz' ),
+			'display'  => __( 'Every 15 minutes', 'color-vivo-social-publishing-for-postiz' ),
 		);
 
 		return $schedules;

@@ -40,7 +40,7 @@ final class AdminApp {
 
 		self::enqueue_styles( $name, $handle, (string) ( $asset['version'] ?? SOCIALRELAYCVI_VERSION ) );
 
-		wp_set_script_translations( $handle, 'social-relay-for-postiz', SOCIALRELAYCVI_DIR . 'languages' );
+		wp_set_script_translations( $handle, 'color-vivo-social-publishing-for-postiz' );
 		wp_add_inline_script( $handle, 'window.socialRelayCviAdmin = ' . wp_json_encode( $data ) . ';', 'before' );
 
 		return true;
@@ -60,10 +60,10 @@ final class AdminApp {
 		if ( ! $loaded ) {
 			printf(
 				'<div class="notice notice-error"><p>%s</p></div>',
-				esc_html__( 'The admin screens are missing. Run "npm ci && npm run build" or install a release build.', 'social-relay-for-postiz' )
+				esc_html__( 'The admin screens are missing. Run "npm ci && npm run build" or install a release build.', 'color-vivo-social-publishing-for-postiz' )
 			);
 		} else {
-			printf( '<div id="%s"><p>%s</p></div>', esc_attr( $id ), esc_html__( 'Loading…', 'social-relay-for-postiz' ) );
+			printf( '<div id="%s"><p>%s</p></div>', esc_attr( $id ), esc_html__( 'Loading…', 'color-vivo-social-publishing-for-postiz' ) );
 		}
 
 		echo '</div>';

@@ -17,17 +17,17 @@ const HELP = {
 	now: () =>
 		__(
 			'Postiz publishes right away when the post is published.',
-			'social-relay-for-postiz'
+			'color-vivo-social-publishing-for-postiz'
 		),
 	slot: () =>
 		__(
 			'Postiz picks the next free time in the posting schedule of each channel.',
-			'social-relay-for-postiz'
+			'color-vivo-social-publishing-for-postiz'
 		),
 	draft: () =>
 		__(
 			'Created as a draft in Postiz, to review and publish there.',
-			'social-relay-for-postiz'
+			'color-vivo-social-publishing-for-postiz'
 		),
 };
 
@@ -49,19 +49,19 @@ export default function TimingSection( { meta, setMeta } ) {
 
 	let scheduleHelp = __(
 		'Without a date: right after publishing.',
-		'social-relay-for-postiz'
+		'color-vivo-social-publishing-for-postiz'
 	);
 	if ( publishAt ) {
 		scheduleHelp = __(
 			'Postiz publishes on this date. A past date means right away.',
-			'social-relay-for-postiz'
+			'color-vivo-social-publishing-for-postiz'
 		);
 	} else if ( config.profile.delayMinutes ) {
 		scheduleHelp = sprintf(
 			/* translators: %d: minutes. */
 			__(
 				'Without a date: %d minutes after publishing, as in the profile.',
-				'social-relay-for-postiz'
+				'color-vivo-social-publishing-for-postiz'
 			),
 			config.profile.delayMinutes
 		);
@@ -70,7 +70,7 @@ export default function TimingSection( { meta, setMeta } ) {
 	return (
 		<>
 			<ToggleGroupControl
-				label={ __( 'When', 'social-relay-for-postiz' ) }
+				label={ __( 'When', 'color-vivo-social-publishing-for-postiz' ) }
 				hideLabelFromVision
 				value={ mode }
 				onChange={ setMode }
@@ -80,19 +80,19 @@ export default function TimingSection( { meta, setMeta } ) {
 			>
 				<ToggleGroupControlOption
 					value="now"
-					label={ __( 'Now', 'social-relay-for-postiz' ) }
+					label={ __( 'Now', 'color-vivo-social-publishing-for-postiz' ) }
 				/>
 				<ToggleGroupControlOption
 					value="schedule"
-					label={ __( 'Date', 'social-relay-for-postiz' ) }
+					label={ __( 'Date', 'color-vivo-social-publishing-for-postiz' ) }
 				/>
 				<ToggleGroupControlOption
 					value="slot"
-					label={ __( 'Next free', 'social-relay-for-postiz' ) }
+					label={ __( 'Next free', 'color-vivo-social-publishing-for-postiz' ) }
 				/>
 				<ToggleGroupControlOption
 					value="draft"
-					label={ __( 'Draft', 'social-relay-for-postiz' ) }
+					label={ __( 'Draft', 'color-vivo-social-publishing-for-postiz' ) }
 				/>
 			</ToggleGroupControl>
 
@@ -111,7 +111,7 @@ export default function TimingSection( { meta, setMeta } ) {
 									? siteDateLabel( publishAt )
 									: __(
 											'Pick a date',
-											'social-relay-for-postiz'
+											'color-vivo-social-publishing-for-postiz'
 									  ) }
 							</Button>
 						) }
@@ -134,7 +134,7 @@ export default function TimingSection( { meta, setMeta } ) {
 							size="compact"
 							onClick={ () => setMeta( META.publishAt, '' ) }
 						>
-							{ __( 'Clear', 'social-relay-for-postiz' ) }
+							{ __( 'Clear', 'color-vivo-social-publishing-for-postiz' ) }
 						</Button>
 					) }
 				</div>
@@ -154,13 +154,13 @@ export default function TimingSection( { meta, setMeta } ) {
 							/* translators: %s: timing of the profile. */
 							__(
 								'Back to the profile (%s)',
-								'social-relay-for-postiz'
+								'color-vivo-social-publishing-for-postiz'
 							),
 							modeLabel( config.profile.mode )
 						) }
 					</Button>
 				) : (
-					__( '(Profile setting.)', 'social-relay-for-postiz' )
+					__( '(Profile setting.)', 'color-vivo-social-publishing-for-postiz' )
 				) }
 			</p>
 		</>

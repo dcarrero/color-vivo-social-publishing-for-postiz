@@ -259,7 +259,7 @@ final class AdminController implements Module {
 
 		// Plain http would send the API key unencrypted: only allowed for a local test instance.
 		if ( str_starts_with( strtolower( $url ), 'http://' ) && ( '' === $new_host || ! Client::allows_local_instance() || ! WebhookPayload::is_local_url( $url ) ) ) {
-			return new WP_Error( 'socialrelaycvi_insecure_url', __( 'Use an https:// address: the API key must not travel unencrypted.', 'social-relay-for-postiz' ), array( 'status' => 400 ) );
+			return new WP_Error( 'socialrelaycvi_insecure_url', __( 'Use an https:// address: the API key must not travel unencrypted.', 'color-vivo-social-publishing-for-postiz' ), array( 'status' => 400 ) );
 		}
 
 		$old_host = strtolower( (string) wp_parse_url( $this->plugin->connection->instance_url(), PHP_URL_HOST ) );
@@ -267,7 +267,7 @@ final class AdminController implements Module {
 
 		// A new server must not receive the stored key: ask for it again.
 		if ( '' !== $old_host && $old_host !== $new_host && '' === $key && 'database' === $source ) {
-			return new WP_Error( 'socialrelaycvi_key_required', __( 'The Postiz address changed: type the API key again so it is not sent to a different server.', 'social-relay-for-postiz' ), array( 'status' => 400 ) );
+			return new WP_Error( 'socialrelaycvi_key_required', __( 'The Postiz address changed: type the API key again so it is not sent to a different server.', 'color-vivo-social-publishing-for-postiz' ), array( 'status' => 400 ) );
 		}
 
 		// A key from the server configuration goes to a new host only after explicit confirmation.
@@ -276,7 +276,7 @@ final class AdminController implements Module {
 				'socialrelaycvi_confirm_host_change',
 				sprintf(
 					/* translators: %s: Postiz host name. */
-					__( 'The API key from the server configuration will be sent to %s. Use this address only if that Postiz instance is yours.', 'social-relay-for-postiz' ),
+					__( 'The API key from the server configuration will be sent to %s. Use this address only if that Postiz instance is yours.', 'color-vivo-social-publishing-for-postiz' ),
 					$new_host
 				),
 				array(
@@ -365,7 +365,7 @@ final class AdminController implements Module {
 		);
 
 		if ( null === $result ) {
-			return new WP_Error( 'socialrelaycvi_bad_import', __( 'This file is not an export of Social Relay profiles.', 'social-relay-for-postiz' ), array( 'status' => 400 ) );
+			return new WP_Error( 'socialrelaycvi_bad_import', __( 'This file is not an export of Social Publishing profiles.', 'color-vivo-social-publishing-for-postiz' ), array( 'status' => 400 ) );
 		}
 
 		$channels = $this->plugin->channels->all();

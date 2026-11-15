@@ -8,7 +8,7 @@
 
 set -euo pipefail
 
-SLUG="social-relay-for-postiz"
+SLUG="color-vivo-social-publishing-for-postiz"
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 OUT="${1:-$ROOT/dist}"
 # The script changes directory later, so a relative output path must be resolved now.

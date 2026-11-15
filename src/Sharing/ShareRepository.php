@@ -232,7 +232,7 @@ final class ShareRepository {
 			$wpdb->prepare(
 				"UPDATE %i SET status = 'error', error = %s, updated_at = %s WHERE status = 'queued' AND publish_at < %s",
 				Installer::tables()['shares'],
-				__( 'Postiz never reported this post as published. Check it in Postiz.', 'social-relay-for-postiz' ),
+				__( 'Postiz never reported this post as published. Check it in Postiz.', 'color-vivo-social-publishing-for-postiz' ),
 				current_time( 'mysql', true ),
 				gmdate( 'Y-m-d H:i:s', time() - $days * DAY_IN_SECONDS )
 			)

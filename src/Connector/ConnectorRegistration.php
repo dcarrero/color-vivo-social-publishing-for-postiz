@@ -54,7 +54,7 @@ final class ConnectorRegistration implements Module {
 			self::ID,
 			array(
 				'name'           => 'Postiz',
-				'description'    => __( 'Publish to social networks through your Postiz instance (self-hosted or Postiz Cloud). Set the instance URL in Social Relay → Settings.', 'social-relay-for-postiz' ),
+				'description'    => __( 'Publish to social networks through your Postiz instance (self-hosted or Postiz Cloud). Set the instance URL in Social Publishing → Settings.', 'color-vivo-social-publishing-for-postiz' ),
 				'type'           => 'social_publishing',
 				'authentication' => array(
 					'method'          => 'api_key',

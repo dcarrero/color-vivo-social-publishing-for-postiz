@@ -21,11 +21,11 @@ final class StatusLabels {
 	 */
 	public static function label( string $status ): string {
 		return match ( $status ) {
-			'queued'    => __( 'Queued', 'social-relay-for-postiz' ),
-			'published' => __( 'Published', 'social-relay-for-postiz' ),
-			'error'     => __( 'Error', 'social-relay-for-postiz' ),
-			'draft'     => __( 'Draft in Postiz', 'social-relay-for-postiz' ),
-			'cancelled' => __( 'Cancelled', 'social-relay-for-postiz' ),
+			'queued'    => __( 'Queued', 'color-vivo-social-publishing-for-postiz' ),
+			'published' => __( 'Published', 'color-vivo-social-publishing-for-postiz' ),
+			'error'     => __( 'Error', 'color-vivo-social-publishing-for-postiz' ),
+			'draft'     => __( 'Draft in Postiz', 'color-vivo-social-publishing-for-postiz' ),
+			'cancelled' => __( 'Cancelled', 'color-vivo-social-publishing-for-postiz' ),
 			default     => $status,
 		};
 	}
