@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-11-10T10:13:03+00:00\n"
-"PO-Revision-Date: 2026-11-15T09:38:55+00:00\n"
+"PO-Revision-Date: 2026-11-15T09:48:22+00:00\n"
 "Language: es_ES\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: color-vivo-social-publishing-for-postiz\n"
@@ -24,7 +24,7 @@ msgstr "Color Vivo Social Publishing for Postiz"
 
 #. Plugin URI of the plugin
 #: color-vivo-social-publishing-for-postiz.php:4
-msgid "https://github.com/dcarrero/social-relay-for-postiz"
+msgid "https://github.com/dcarrero/color-vivo-social-publishing-for-postiz"
 msgstr ""
 
 #. Description of the plugin

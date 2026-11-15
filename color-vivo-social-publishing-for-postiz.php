@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       Color Vivo Social Publishing for Postiz
- * Plugin URI:        https://github.com/dcarrero/social-relay-for-postiz
+ * Plugin URI:        https://github.com/dcarrero/color-vivo-social-publishing-for-postiz
  * Description:       Auto-publish and schedule your WordPress content on social networks through your own Postiz instance (self-hosted or Postiz Cloud).
  * Version:           1.0.0
  * Requires at least: 7.0

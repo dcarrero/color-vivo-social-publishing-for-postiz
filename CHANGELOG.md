@@ -7,7 +7,7 @@ All notable changes to Color Vivo Social Publishing for Postiz. The format follo
 Changes asked for in the wordpress.org review of 1.0.0, before its approval.
 
 ### Changed
-- New name **Color Vivo Social Publishing for Postiz** and slug and text domain `color-vivo-social-publishing-for-postiz` (was Social Relay for Postiz / `social-relay-for-postiz`): the old name was already used by another social publishing service. The main file is now `color-vivo-social-publishing-for-postiz.php`. The admin menu and the editor panel are called "Social Publishing", and the WP-CLI command is `wp social-publishing`. Internal names (the `socialrelaycvi_` prefix, options, tables, hooks, REST routes and admin page slugs) do not change.
+- New name **Color Vivo Social Publishing for Postiz** and slug and text domain `color-vivo-social-publishing-for-postiz` (was Social Relay for Postiz / `social-relay-for-postiz`): the old name was already used by another social publishing service. The main file is now `color-vivo-social-publishing-for-postiz.php`. The admin menu and the editor panel are called "Social Publishing", and the WP-CLI command is `wp social-publishing`. Internal names (the `socialrelaycvi_` prefix, options, tables, hooks, REST routes and admin page slugs) do not change. The GitHub repository is now `dcarrero/color-vivo-social-publishing-for-postiz` (the old URL redirects).
 - Failure alerts show only in the dashboard, the plugin settings screen and the posts lists of the post types that are shared, instead of every admin screen.
 - Action Scheduler 4.2.0 (was 3.9.3).
 - The release zip no longer includes `languages/`: translations come from translate.wordpress.org. JavaScript translations load from the language packs.
@@ -167,9 +167,9 @@ First public release: the changes below, on top of the development versions 0.1.
 - Shares and log tables, settings and log screens, `socialrelaycvi/v1` status and channels routes.
 - Module registry (`socialrelaycvi_modules` filter) for the Pro add-on.
 
-[Unreleased]: https://github.com/dcarrero/social-relay-for-postiz/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/dcarrero/social-relay-for-postiz/compare/v0.3.1...v1.0.0
-[0.3.1]: https://github.com/dcarrero/social-relay-for-postiz/compare/v0.3.0...v0.3.1
-[0.3.0]: https://github.com/dcarrero/social-relay-for-postiz/compare/v0.2.0...v0.3.0
-[0.2.0]: https://github.com/dcarrero/social-relay-for-postiz/compare/v0.1.0...v0.2.0
-[0.1.0]: https://github.com/dcarrero/social-relay-for-postiz/releases/tag/v0.1.0
+[Unreleased]: https://github.com/dcarrero/color-vivo-social-publishing-for-postiz/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/dcarrero/color-vivo-social-publishing-for-postiz/compare/v0.3.1...v1.0.0
+[0.3.1]: https://github.com/dcarrero/color-vivo-social-publishing-for-postiz/compare/v0.3.0...v0.3.1
+[0.3.0]: https://github.com/dcarrero/color-vivo-social-publishing-for-postiz/compare/v0.2.0...v0.3.0
+[0.2.0]: https://github.com/dcarrero/color-vivo-social-publishing-for-postiz/compare/v0.1.0...v0.2.0
+[0.1.0]: https://github.com/dcarrero/color-vivo-social-publishing-for-postiz/releases/tag/v0.1.0

@@ -55,7 +55,7 @@ Works with self-hosted Postiz and with Postiz Cloud.
 * **WordPress 7 Connectors**: Postiz appears in Settings → Connectors. The API key can come from an environment variable, a constant or the database.
 * **WP-CLI**: `wp social-publishing status|test|channels|preview|share|shares|cancel|sync|log`.
 * **Abilities API**: preview, share and check social posts from AI agents through the MCP Adapter.
-* **Hooks** to change the message, the request sent to Postiz, the post types and more. See the [developer documentation](https://github.com/dcarrero/social-relay-for-postiz).
+* **Hooks** to change the message, the request sent to Postiz, the post types and more. See the [developer documentation](https://github.com/dcarrero/color-vivo-social-publishing-for-postiz).
 
 Color Vivo Social Publishing for Postiz is a product by [Color Vivo](https://colorvivo.com). It is not affiliated with or endorsed by Postiz.
 
@@ -144,7 +144,7 @@ The plugin does not track visitors and does not set cookies. A suggested text fo
 
 == Source code ==
 
-The editor panel and the admin screens are built from the JavaScript sources in `assets/src/` with @wordpress/scripts. Full source code and build instructions: https://github.com/dcarrero/social-relay-for-postiz
+The editor panel and the admin screens are built from the JavaScript sources in `assets/src/` with @wordpress/scripts. Full source code and build instructions: https://github.com/dcarrero/color-vivo-social-publishing-for-postiz
 
 == Changelog ==
 
