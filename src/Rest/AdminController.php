@@ -286,6 +286,13 @@ final class AdminController implements Module {
 			);
 		}
 
+		// A new address: the API base detected for the old one no longer applies. Without it
+		// nothing is sent until the test below succeeds, so a new key never reaches the old server.
+		if ( EndpointResolver::normalize( $this->plugin->connection->instance_url() ) !== $url ) {
+			$this->plugin->channels->flush();
+			$this->plugin->connection->forget_api_base();
+		}
+
 		update_option( Connection::OPTION_URL, esc_url_raw( $url ), false );
 
 		if ( '' !== $key && $this->plugin->connection->key_is_editable() ) {

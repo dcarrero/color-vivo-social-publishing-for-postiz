@@ -12,6 +12,9 @@ Changes asked for in the wordpress.org review of 1.0.0, before its approval.
 - Action Scheduler 4.2.0 (was 3.9.3).
 - The release zip no longer includes `languages/`: translations come from translate.wordpress.org. JavaScript translations load from the language packs.
 
+### Fixed
+- Changing the Postiz address drops the API base detected for the old one. If the connection test fails, nothing is sent until a test succeeds, so a new key never goes to the previous server.
+
 ## [1.0.0] - 2026-11-11
 
 First public release: the changes below, on top of the development versions 0.1.0 to 0.3.1.

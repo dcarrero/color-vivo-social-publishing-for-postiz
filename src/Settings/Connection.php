@@ -47,6 +47,13 @@ final class Connection {
 	}
 
 	/**
+	 * Drops the detected API base, so nothing is sent until a new connection test succeeds.
+	 */
+	public function forget_api_base(): void {
+		delete_option( self::OPTION_API_BASE );
+	}
+
+	/**
 	 * The API key, from the first source that has one.
 	 */
 	public function api_key(): string {
