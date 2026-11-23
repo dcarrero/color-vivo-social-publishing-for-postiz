@@ -22,6 +22,9 @@ Asked for in the wordpress.org review of 1.0.0 (also on main, before its approva
   - The settings screen opens the tab named in `?tab=` (built-in or added by an add-on).
   - Settings tabs: action `socialrelaycvi_settings_enqueue` (to enqueue an add-on script after the settings app) and JavaScript filter `socialrelaycvi.settingsTabs` (a list of `{ name, title, render( props ) }`, shown before "Advanced").
 
+### Fixed
+- Changing the Postiz address drops the API base detected for the old one. If the connection test fails, nothing is sent until a test succeeds, so a new key never goes to the previous server.
+
 ## [1.0.0] - 2026-11-11
 
 First public release: the changes below, on top of the development versions 0.1.0 to 0.3.1.
