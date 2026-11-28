@@ -13,6 +13,7 @@ Changes asked for in the wordpress.org review of 1.0.0, before its approval.
 - The release zip no longer includes `languages/`: translations come from translate.wordpress.org. JavaScript translations load from the language packs.
 
 ### Fixed
+- `{meta:key}` only reads custom fields registered with `show_in_rest` (single, scalar) or allowed by name with the new `socialrelaycvi_template_meta_keys` filter. Before, any unprotected field was readable, and anyone who could edit a post could see it through its message and the preview.
 - Changing the Postiz address drops the API base detected for the old one. If the connection test fails, nothing is sent until a test succeeds, so a new key never goes to the previous server.
 
 ## [1.0.0] - 2026-11-11
