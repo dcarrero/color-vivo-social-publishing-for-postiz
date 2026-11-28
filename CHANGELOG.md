@@ -23,6 +23,7 @@ Asked for in the wordpress.org review of 1.0.0 (also on main, before its approva
   - Settings tabs: action `socialrelaycvi_settings_enqueue` (to enqueue an add-on script after the settings app) and JavaScript filter `socialrelaycvi.settingsTabs` (a list of `{ name, title, render( props ) }`, shown before "Advanced").
 
 ### Fixed
+- `{meta:key}` only reads custom fields registered with `show_in_rest` (single, scalar) or allowed by name with the new `socialrelaycvi_template_meta_keys` filter. Before, any unprotected field was readable, and anyone who could edit a post could see it through its message and the preview.
 - Changing the Postiz address drops the API base detected for the old one. If the connection test fails, nothing is sent until a test succeeds, so a new key never goes to the previous server.
 
 ## [1.0.0] - 2026-11-11

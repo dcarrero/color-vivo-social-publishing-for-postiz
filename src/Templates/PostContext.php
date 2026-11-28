@@ -54,8 +54,8 @@ final class PostContext {
 			'tags'            => static fn (): string => $terms( 'post_tag' ),
 			'term'            => static fn ( string $taxonomy ): string => '' === $taxonomy ? '' : $terms( $taxonomy ),
 			'hashtags'        => static fn ( string $taxonomy ): string => TemplateEngine::hashtags( $terms( '' === $taxonomy ? 'post_tag' : $taxonomy ) ),
-			// Protected meta (leading "_" or marked protected by a plugin) is never readable from a template.
-			'meta'            => static fn ( string $key ): string => '' === $key || is_protected_meta( $key, 'post' ) ? '' : $plain( (string) get_post_meta( $post->ID, $key, true ) ),
+			// Only custom fields the site exposes on purpose (see meta_readable()): anyone who edits a post can write a template.
+			'meta'            => static fn ( string $key ): string => self::meta_readable( $post, $key ) ? $plain( (string) get_post_meta( $post->ID, $key, true ) ) : '',
 			'seo_title'       => static fn (): string => self::seo_value( $post, array( '_yoast_wpseo_title', 'rank_math_title', '_aioseo_title', '_seopress_titles_title' ), get_the_title( $post ) ),
 			'seo_description' => static fn (): string => self::seo_value( $post, array( '_yoast_wpseo_metadesc', 'rank_math_description', '_aioseo_description', '_seopress_titles_desc' ), $excerpt ),
 		);
@@ -67,6 +67,45 @@ final class PostContext {
 		 * @param WP_Post                                        $post    Post being shared.
 		 */
 		return (array) apply_filters( 'socialrelaycvi_template_context', $context, $post );
+	}
+
+	/**
+	 * Whether {meta:key} may read this custom field.
+	 *
+	 * Templates are written by anyone who can edit the post (the per-post message), and the preview shows the result,
+	 * so not being protected is not enough. A field is readable only when WordPress already exposes it to the post's
+	 * editors: registered with register_post_meta() and show_in_rest, as a single scalar value. Other fields must be
+	 * allowed by name with the socialrelaycvi_template_meta_keys filter. Protected meta is never readable.
+	 *
+	 * @param WP_Post $post Post.
+	 * @param string  $key  Meta key.
+	 */
+	public static function meta_readable( WP_Post $post, string $key ): bool {
+		if ( '' === $key || is_protected_meta( $key, 'post' ) ) {
+			return false;
+		}
+
+		/**
+		 * Filters the extra custom fields that templates may read with {meta:key}.
+		 *
+		 * By default only fields registered with show_in_rest are readable. Add a key here only if every user who
+		 * can edit posts of this type may see its value.
+		 *
+		 * @param list<string> $keys Allowed meta keys. Default empty.
+		 * @param WP_Post      $post Post being shared.
+		 */
+		$allowed = (array) apply_filters( 'socialrelaycvi_template_meta_keys', array(), $post );
+		if ( in_array( $key, array_map( 'strval', $allowed ), true ) ) {
+			return true;
+		}
+
+		$registered = get_registered_meta_keys( 'post', $post->post_type ) + get_registered_meta_keys( 'post' );
+		$args       = $registered[ $key ] ?? null;
+
+		return is_array( $args )
+			&& ! empty( $args['show_in_rest'] )
+			&& ! empty( $args['single'] )
+			&& in_array( $args['type'] ?? 'string', array( 'string', 'integer', 'number', 'boolean' ), true );
 	}
 
 	/**
